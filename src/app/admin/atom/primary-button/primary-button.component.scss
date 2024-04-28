@@ -1,0 +1,14 @@
+@use '../../../app.component' as app;
+
+.primary_button {
+  font-family: app.$font-family;
+  background-color: app.$primary-button-color;
+  color: app.$very-light-gray;
+  font-size: app.$medium-font-size;
+  font-weight: bold;
+  border: none;
+  width: 94px;
+  height: 40px;
+  border-radius: 30px;
+  padding: 0px 24px;
+}
