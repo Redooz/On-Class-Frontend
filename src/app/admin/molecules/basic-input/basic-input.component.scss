@@ -1,0 +1,28 @@
+@use '../../../app.component' as app;
+
+.input-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+
+  .basic-label {
+    font-family: app.$font-family;
+    color: app.$primary-color;
+    font-size: app.$small-font-size;
+    margin-bottom: 4px;
+    font-weight: 700;
+  }
+
+  .basic-input {
+    font-family: app.$font-family;
+    color: app.$gray;
+    font-size: app.$small-font-size;
+    width: 574px;
+    height: 30px;
+    border: 1px solid app.$primary-color;
+    border-radius: 30px;
+    background-color: #E7833D14;
+    padding: 4px 4px 4px 16px;
+  }
+
+}
