@@ -1,4 +1,4 @@
-@use '../../../app.component' as app;
+@use '../../../../styles.scss' as app;
 
 .primary_button {
   font-family: app.$font-family;
