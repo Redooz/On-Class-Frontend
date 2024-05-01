@@ -1,0 +1,37 @@
+.side-bar {
+  display: flex;
+  flex-direction: column;
+  background-color: #FDF1E9;
+  height: 100vh;
+  width: 394px;
+  align-items: center;
+
+  .image {
+    width: 200px;
+  }
+
+  .items-list {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 100%;
+    margin-top: 20%;
+    padding: 0;
+    list-style-type: none;
+
+    .menu-item {
+      width: 100%;
+      display: grid;
+      grid-template-rows: 1fr;
+      grid-template-columns: repeat(3, 1fr);
+      background-color: #E7833D66;
+
+      :first-child {
+        grid-column-start: 2;
+      }
+    }
+
+  }
+}
+

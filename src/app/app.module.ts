@@ -7,6 +7,8 @@ import { PrimaryButtonComponent } from './components/atoms/primary-button/primar
 import { BasicInputComponent } from './components/molecules/basic-input/basic-input.component';
 import { CloseButtonComponent } from './components/atoms/close-button/close-button.component';
 import { ModalComponent } from './components/organisms/modal/modal.component';
+import { SideBarComponent } from './components/organisms/side-bar/side-bar.component';
+import { SideBarItemComponent } from './components/molecules/side-bar-item/side-bar-item.component';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { ModalComponent } from './components/organisms/modal/modal.component';
     BasicInputComponent,
     CloseButtonComponent,
     ModalComponent,
+    SideBarComponent,
+    SideBarItemComponent,
   ],
   imports: [
     BrowserModule,

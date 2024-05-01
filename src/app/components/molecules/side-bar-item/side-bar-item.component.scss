@@ -1,0 +1,20 @@
+@import '../../../../styles.scss';
+
+.item {
+  text-decoration: none;
+  grid-column-start: 2;
+
+  .icon {
+    font-size: 16px;
+    color: $primary-color;
+    margin-right: 10px;
+  }
+
+  .item-text {
+    font-size: $medium-large-font-size;
+    color: $primary-color;
+    font-weight: 400;
+  }
+
+}
+
