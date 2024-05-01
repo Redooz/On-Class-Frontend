@@ -1,5 +1,13 @@
+@import 'src/styles/_variables.scss';
+
 .close_button {
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.icon {
+  color: $primary-color;
+  font-size: 18px;
+  font-weight: 300;
 }
