@@ -1,4 +1,4 @@
-@use '../../../../../styles.scss' as app;
+@import '../../../../../styles.scss';
 
 .input-container {
   display: flex;
@@ -6,20 +6,20 @@
   margin-bottom: 16px;
 
   .basic-label {
-    font-family: app.$font-family;
-    color: app.$primary-color;
-    font-size: app.$small-font-size;
+    font-family: $font-family;
+    color: $primary-color;
+    font-size: $small-font-size;
     margin-bottom: 4px;
     font-weight: 700;
   }
 
   .basic-input {
-    font-family: app.$font-family;
-    color: app.$gray;
-    font-size: app.$small-font-size;
+    font-family: $font-family;
+    color: $gray;
+    font-size: $small-font-size;
     width: 574px;
     height: 30px;
-    border: 1px solid app.$primary-color;
+    border: 1px solid $primary-color;
     border-radius: 30px;
     background-color: #E7833D14;
     padding: 4px 4px 4px 16px;

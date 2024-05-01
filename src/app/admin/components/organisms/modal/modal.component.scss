@@ -1,10 +1,9 @@
-@use '../../../../../styles.scss' as app;
+@import '../../../../../styles.scss';
 
 .modal-container {
   height: 348px;
   width: 645px;
   border-radius: 26px;
-  margin: 50px;
   background-color: white;
 
   .modal__header {
@@ -14,9 +13,9 @@
     padding: 4px 24px;
 
     .modal__title {
-      font-size: app.$large-font-size;
+      font-size: $large-font-size;
       font-weight: 700;
-      color: app.$primary-color;
+      color: $primary-color;
     }
 
   }
