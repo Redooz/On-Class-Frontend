@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'basic-input',
+  selector: 'app-basic-input',
   templateUrl: './basic-input.component.html',
   styleUrls: ['./basic-input.component.scss']
 })
