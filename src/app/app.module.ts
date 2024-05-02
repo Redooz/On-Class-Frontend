@@ -11,6 +11,7 @@ import { SideBarComponent } from './components/organisms/side-bar/side-bar.compo
 import { SideBarItemComponent } from './components/molecules/side-bar-item/side-bar-item.component';
 import { HomeComponent } from './components/pages/home/home.component';
 import { TemplateComponent } from './components/templates/template/template.component';
+import { HeaderComponent } from './components/molecules/header/header.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { TemplateComponent } from './components/templates/template/template.comp
     SideBarItemComponent,
     HomeComponent,
     TemplateComponent,
+    HeaderComponent,
   ],
   imports: [
     BrowserModule,
