@@ -9,6 +9,8 @@ import { CloseButtonComponent } from './components/atoms/close-button/close-butt
 import { ModalComponent } from './components/organisms/modal/modal.component';
 import { SideBarComponent } from './components/organisms/side-bar/side-bar.component';
 import { SideBarItemComponent } from './components/molecules/side-bar-item/side-bar-item.component';
+import { HomeComponent } from './components/pages/home/home.component';
+import { TemplateComponent } from './components/templates/template/template.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +21,8 @@ import { SideBarItemComponent } from './components/molecules/side-bar-item/side-
     ModalComponent,
     SideBarComponent,
     SideBarItemComponent,
+    HomeComponent,
+    TemplateComponent,
   ],
   imports: [
     BrowserModule,
@@ -27,4 +31,4 @@ import { SideBarItemComponent } from './components/molecules/side-bar-item/side-
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}

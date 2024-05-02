@@ -11,12 +11,12 @@ export class SideBarComponent implements OnInit {
     {
       optionIcon: 'home',
       optionLabel: 'Inicio',
-      optionRoute: 'home'
+      optionRoute: '/home'
     },
     {
       optionIcon: 'book',
       optionLabel: 'Biblioteca',
-      optionRoute: 'library'
+      optionRoute: '/library'
     }
   ];
 

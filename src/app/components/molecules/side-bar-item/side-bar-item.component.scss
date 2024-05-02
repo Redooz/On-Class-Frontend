@@ -1,20 +1,49 @@
 @import '../../../../styles.scss';
 
-.item {
-  text-decoration: none;
-  grid-column-start: 2;
+.menu-item {
+  height: 50px;
+  width: 100%;
+  border-radius: 12px;
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
 
-  .icon {
-    font-size: 16px;
-    color: $primary-color;
-    margin-right: 10px;
+  .item {
+    text-decoration: none;
+    display: block;
+    width: inherit;
+    grid-column-start: 2;
+
+    .icon {
+      font-size: 16px;
+      color: $primary-color;
+      margin-right: 10px;
+    }
+
+    .item-text {
+      font-size: $medium-large-font-size;
+      color: $primary-color;
+      font-weight: 400;
+    }
   }
 
-  .item-text {
-    font-size: $medium-large-font-size;
-    color: $primary-color;
-    font-weight: 400;
+  &:hover {
+    background-color: rgba($primary-color, 0.1);
+    font-weight: bold;
   }
-
 }
 
+.active {
+  background-color: #E7833D66;
+
+  .item {
+    .item-text {
+      font-weight: 700;
+    }
+  }
+
+  &:hover {
+    background-color: #E7833D66;
+  }
+}
