@@ -1,0 +1,29 @@
+@import "../../../../styles.scss";
+
+.text {
+  display: flex;
+  justify-content: center;
+  width: 134px;
+  height: 44px;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: $medium-font-size;
+  color: $primary-color;
+  border-bottom: 1px solid $primary-color;
+
+  &:hover {
+    background-color: rgba($color: $primary-color, $alpha: 0.1);
+    border-bottom: 2.5px solid $primary-color;
+  }
+}
+
+.active {
+  font-weight: bold;
+  border-bottom: 5px solid $primary-color;
+  border-radius: 5px;
+
+  &:hover {
+    background-color: transparent;
+    border-bottom: 5px solid $primary-color;
+  }
+}

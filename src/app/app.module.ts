@@ -12,7 +12,11 @@ import { SideBarItemComponent } from './components/molecules/side-bar-item/side-
 import { HomeComponent } from './components/pages/home/home.component';
 import { TemplateComponent } from './components/templates/template/template.component';
 import { HeaderComponent } from './components/molecules/header/header.component';
-import { LibraryComponent } from './components/pages/library/library.component';
+import { LibraryComponent } from './components/templates/library/library.component';
+import { TabTextComponent } from './components/atoms/tab-text/tab-text.component';
+import { NavTabComponent } from './components/molecules/nav-tab/nav-tab.component';
+import { CapacitiesComponent } from './components/pages/capacities/capacities.component';
+import { BootcampsComponent } from './components/pages/bootcamps/bootcamps.component';
 
 @NgModule({
   declarations: [
@@ -27,6 +31,10 @@ import { LibraryComponent } from './components/pages/library/library.component';
     TemplateComponent,
     HeaderComponent,
     LibraryComponent,
+    TabTextComponent,
+    NavTabComponent,
+    CapacitiesComponent,
+    BootcampsComponent,
   ],
   imports: [
     BrowserModule,
