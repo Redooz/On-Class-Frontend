@@ -1,0 +1,12 @@
+.template-container {
+  display: flex;
+  flex-direction: column;
+
+  .content-container {
+    width: 80%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    margin-left: 394px;
+  }
+}

@@ -12,6 +12,7 @@ import { SideBarItemComponent } from './components/molecules/side-bar-item/side-
 import { HomeComponent } from './components/pages/home/home.component';
 import { TemplateComponent } from './components/templates/template/template.component';
 import { HeaderComponent } from './components/molecules/header/header.component';
+import { LibraryComponent } from './components/pages/library/library.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { HeaderComponent } from './components/molecules/header/header.component'
     HomeComponent,
     TemplateComponent,
     HeaderComponent,
+    LibraryComponent,
   ],
   imports: [
     BrowserModule,

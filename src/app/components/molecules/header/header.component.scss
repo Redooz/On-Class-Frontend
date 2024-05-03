@@ -1,8 +1,8 @@
 @import "../../../../styles.scss";
 
 .header-container {
-  height: 60px;
   display: flex;
+  height: 60px;
   background-color: $primary-color;
   justify-content: end;
   align-items: center;
