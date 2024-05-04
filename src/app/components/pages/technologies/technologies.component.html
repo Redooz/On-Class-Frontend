@@ -1,1 +1,13 @@
-<p>technologies works!</p>
+<main class="container">
+  <p class="text">Crear una tecnologia</p>
+  <span class="button">
+    <app-primary-button
+      [optionText]="'Crear'"
+      (click)="openModal(modalTemplate)"
+    ></app-primary-button>
+  </span>
+
+  <ng-template #modalTemplate>
+    <p>Testing the modal</p>
+  </ng-template>
+</main>

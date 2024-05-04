@@ -1,0 +1,20 @@
+@import "../../../../styles.scss";
+
+.container {
+  height: 70vh;
+  display: grid;
+  grid-template-rows: 1fr 1fr 1fr;
+
+  .text {
+    grid-row: 2;
+    place-self: center;
+    font-size: $medium-large-font-size;
+    color: $primary-color;
+    font-weight: 600;
+  }
+
+  .button {
+    grid-row: 3;
+    place-self: end;
+  }
+}

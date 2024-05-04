@@ -1,6 +1,7 @@
 @import '../../../../styles.scss';
 
 .primary_button {
+  cursor: pointer;
   font-family: $font-family;
   background-color: $primary-color;
   color: $very-light-gray;

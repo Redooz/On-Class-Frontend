@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, TemplateRef } from '@angular/core';
+import { ModalService } from 'src/app/services/modal.service';
 
 @Component({
   selector: 'app-technologies',
   templateUrl: './technologies.component.html',
-  styleUrls: ['./technologies.component.scss']
+  styleUrls: ['./technologies.component.scss'],
 })
 export class TechnologiesComponent implements OnInit {
+  constructor(private modalService: ModalService) {}
 
-  constructor() { }
+  ngOnInit(): void {}
 
-  ngOnInit(): void {
+  openModal(modelTemplate: TemplateRef<any>) {
+    this.modalService
+      .open(modelTemplate, { title: 'Crear tecnologia' })
+      .subscribe((action) => {
+        console.log("modalAction", action);
+      });
   }
-
 }

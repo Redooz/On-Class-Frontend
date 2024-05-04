@@ -17,6 +17,8 @@ import { TabTextComponent } from './components/atoms/tab-text/tab-text.component
 import { NavTabComponent } from './components/molecules/nav-tab/nav-tab.component';
 import { CapacitiesComponent } from './components/pages/capacities/capacities.component';
 import { BootcampsComponent } from './components/pages/bootcamps/bootcamps.component';
+import { TechnologiesComponent } from './components/pages/technologies/technologies.component';
+import { ModalService } from './services/modal.service';
 
 @NgModule({
   declarations: [
@@ -33,6 +35,7 @@ import { BootcampsComponent } from './components/pages/bootcamps/bootcamps.compo
     LibraryComponent,
     TabTextComponent,
     NavTabComponent,
+    TechnologiesComponent,
     CapacitiesComponent,
     BootcampsComponent,
   ],
@@ -40,7 +43,7 @@ import { BootcampsComponent } from './components/pages/bootcamps/bootcamps.compo
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
