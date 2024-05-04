@@ -3,11 +3,11 @@
   <span class="button">
     <app-primary-button
       [optionText]="'Crear'"
-      (click)="openModal(modalTemplate)"
+      (click)="openModal()"
     ></app-primary-button>
   </span>
 
-  <ng-template #modalTemplate>
+  <app-modal *ngIf="modalIsVisible" [optionTitle]="'Crear tecnologia'" (closeEvent)="closeModal()">
     <app-technology-form></app-technology-form>
-  </ng-template>
+  </app-modal>
 </main>

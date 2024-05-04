@@ -1,4 +1,16 @@
 <div class="input-container">
-  <label for="basic-input" class="basic-label"> {{optionLabel}} </label>
-  <input id="basic-input" class="basic-input" type="text" placeholder=" {{optionPlaceholder}} ">
+  <label for="basic-input" class="basic-label"> {{ optionLabel }} </label>
+  <input
+    class="basic-input"
+    [type]="optionInputType"
+    [required]="optionIsRequired"
+    placeholder=" {{ optionPlaceholder }} "
+    [formControl]="control"
+    (input)="onInput($event)"
+  />
+  <section *ngIf="control.invalid && control.touched" class="text-danger">
+    <span *ngIf="control.errors?.['required']">Este campo es requerido</span>
+    <span *ngIf="control.errors?.['minlength']">Debe tener al menos {{ control.errors?.['minlength'].requiredLength }} caracteres</span>
+    <span *ngIf="control.errors?.['maxlength']">Debe tener como máximo {{ control.errors?.['maxlength'].requiredLength }} caracteres</span>
+  </section>
 </div>

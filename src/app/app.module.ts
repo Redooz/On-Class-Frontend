@@ -18,8 +18,8 @@ import { NavTabComponent } from './components/molecules/nav-tab/nav-tab.componen
 import { CapacitiesComponent } from './components/pages/capacities/capacities.component';
 import { BootcampsComponent } from './components/pages/bootcamps/bootcamps.component';
 import { TechnologiesComponent } from './components/pages/technologies/technologies.component';
-import { ModalService } from './services/modal.service';
 import { TechnologyFormComponent } from './components/molecules/technology-form/technology-form.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -43,9 +43,10 @@ import { TechnologyFormComponent } from './components/molecules/technology-form/
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule,
+    ReactiveFormsModule,
   ],
-  providers: [ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule {}
