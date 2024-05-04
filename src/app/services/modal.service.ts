@@ -1,4 +1,4 @@
-import { Inject, Injectable, Injector, TemplateRef, ViewContainerRef, ComponentFactoryResolver } from '@angular/core';
+import { Inject, Injectable, Injector, TemplateRef, ComponentFactoryResolver } from '@angular/core';
 import { ModalComponent } from '../components/organisms/modal/modal.component';
 import { DOCUMENT } from '@angular/common';
 import { Subject } from 'rxjs';

@@ -19,6 +19,7 @@ import { CapacitiesComponent } from './components/pages/capacities/capacities.co
 import { BootcampsComponent } from './components/pages/bootcamps/bootcamps.component';
 import { TechnologiesComponent } from './components/pages/technologies/technologies.component';
 import { ModalService } from './services/modal.service';
+import { TechnologyFormComponent } from './components/molecules/technology-form/technology-form.component';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { ModalService } from './services/modal.service';
     TechnologiesComponent,
     CapacitiesComponent,
     BootcampsComponent,
+    TechnologyFormComponent,
   ],
   imports: [
     BrowserModule,
