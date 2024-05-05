@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { TechnologyService } from '../../../technology/services/technology.service';
+import { CreateTechnologyRequest } from '../../../technology/dtos/request/create-technology.request';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Component({
   selector: 'app-technology-form',
@@ -7,21 +10,32 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./technology-form.component.scss'],
 })
 export class TechnologyFormComponent implements OnInit {
-  public form!: FormGroup;
+  public form: FormGroup = new FormGroup({});
 
-  constructor(private fb: FormBuilder) {}
+  constructor(private fb: FormBuilder, private service: TechnologyService) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(5)]],
+      name: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
       description: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(90)]],
     });
   }
 
   private createTechnology() {
-    const { name, description } = this.form.value;
+    const { name, description }: CreateTechnologyRequest = this.form.value;
 
-    console.log(`Technology created: ${name} - ${description}`);
+    const observable = this.service.createTechnology({ name, description })
+
+    observable.subscribe({
+      next: () => {
+        console.log('Technology created successfully');
+        // close modal
+      },
+      error: (error: HttpErrorResponse) => {
+        console.error('Error creating technology', error.status);
+      }
+
+    })
   }
 
   onValueChange(controlName: string, value: string) {

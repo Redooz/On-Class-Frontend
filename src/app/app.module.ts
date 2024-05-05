@@ -20,6 +20,9 @@ import { BootcampsComponent } from './components/pages/bootcamps/bootcamps.compo
 import { TechnologiesComponent } from './components/pages/technologies/technologies.component';
 import { TechnologyFormComponent } from './components/molecules/technology-form/technology-form.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { TechnologyService } from './technology/services/technology.service';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { TokenInterceptor } from './interceptors/token.interceptor';
 
 @NgModule({
   declarations: [
@@ -46,7 +49,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
+    HttpClientModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    TechnologyService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: TokenInterceptor,
+      multi: true,
+    }
+  ],
 })
 export class AppModule {}
