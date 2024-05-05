@@ -34,7 +34,6 @@ export class TechnologiesComponent implements OnInit {
 
   openError(error: string) {
     this.errorMessage = error;
-    this.closeModal();
     this.errorIsVisible = true;
   }
 

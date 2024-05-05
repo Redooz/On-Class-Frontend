@@ -13,13 +13,15 @@ export class TechnologyFormComponent implements OnInit {
   public form: FormGroup = new FormGroup({});
   @Output() technologyCreated = new EventEmitter<void>();
   @Output() technologyNotCreated = new EventEmitter<string>();
+  public maxLengthName: number = 50;
+  public maxLengthDescription: number = 90;
 
   constructor(private fb: FormBuilder, private service: TechnologyService) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(50)]],
-      description: ['', [Validators.required, Validators.minLength(1), Validators.maxLength(90)]],
+      name: ['', [Validators.required]],
+      description: ['', [Validators.required]],
     });
   }
 
@@ -36,6 +38,12 @@ export class TechnologyFormComponent implements OnInit {
       },
       error: (error: HttpErrorResponse) => {
         console.error('Error creating technology', error.status);
+
+        if (error.status === 0) {
+          this.technologyNotCreated.emit('Conexión al servidor fallida');
+          return;
+        }
+
         this.technologyNotCreated.emit(error.error.message);
       }
 

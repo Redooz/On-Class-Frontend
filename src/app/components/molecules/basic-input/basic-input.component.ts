@@ -3,6 +3,7 @@ import {
   EventEmitter,
   forwardRef,
   Input,
+  OnInit,
   Output,
 } from '@angular/core';
 import { FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
@@ -19,17 +20,23 @@ import { FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
     },
   ],
 })
-export class BasicInputComponent {
+export class BasicInputComponent implements OnInit {
   @Input() optionLabel: string = '';
   @Input() optionPlaceholder: string = '';
   @Input() optionInputType: string = 'text';
   @Input() optionIsRequired: boolean = false;
+  @Input() optionMaxLength: number = 0;
 
   @Output() valueChange = new EventEmitter<string>();
-
   private onChange = (value: string) => {};
+  public control: FormControl = new FormControl();
 
-  control: FormControl = new FormControl('', this.optionIsRequired ? Validators.required : null);
+  ngOnInit(): void {
+    this.control.setValidators([
+      Validators.required,
+      Validators.maxLength(this.optionMaxLength),
+    ]);
+  }
 
   get value(): string {
     return this.control.value;
