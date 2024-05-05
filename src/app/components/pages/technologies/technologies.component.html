@@ -6,8 +6,23 @@
       (click)="openModal()"
     ></app-primary-button>
   </span>
-
-  <app-modal *ngIf="modalIsVisible" [optionTitle]="'Crear tecnologia'" (closeEvent)="closeModal()">
-    <app-technology-form></app-technology-form>
-  </app-modal>
 </main>
+
+<app-modal *ngIf="modalIsVisible" [optionTitle]="'Crear tecnologia'" (closeEvent)="closeModal()">
+  <app-technology-form (technologyCreated)="openSuccess()" (technologyNotCreated)="openError($event)"></app-technology-form>
+</app-modal>
+
+<app-modal *ngIf="successIsVisible" (closeEvent)="closeSuccess()">
+  <app-modal-message
+    (closeEvent)="closeSuccess()"
+    [optionLabel]="'!Tecnologia Creada!'"
+  ></app-modal-message>
+</app-modal>
+
+<app-modal *ngIf="errorIsVisible" (closeEvent)="closeError()">
+  <app-modal-message
+    (closeEvent)="closeError()"
+    [isSuccessful]="false"
+    [optionLabel]="errorMessage"
+  ></app-modal-message>
+</app-modal>

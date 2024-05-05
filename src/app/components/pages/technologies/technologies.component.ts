@@ -7,6 +7,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TechnologiesComponent implements OnInit {
   public modalIsVisible: boolean = false;
+  public successIsVisible: boolean = false;
+  public errorIsVisible: boolean = false;
+  public errorMessage: string = '!Error al crear la tecnología!';
+
   constructor() {}
 
   ngOnInit(): void {}
@@ -18,4 +22,24 @@ export class TechnologiesComponent implements OnInit {
   closeModal() {
     this.modalIsVisible = false;
   }
+
+  openSuccess() {
+    this.closeModal();
+    this.successIsVisible = true;
+  }
+
+  closeSuccess() {
+    this.successIsVisible = false;
+  }
+
+  openError(error: string) {
+    this.errorMessage = error;
+    this.closeModal();
+    this.errorIsVisible = true;
+  }
+
+  closeError() {
+    this.errorIsVisible = false;
+  }
+
 }

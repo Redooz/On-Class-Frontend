@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TechnologyService } from '../../../technology/services/technology.service';
 import { CreateTechnologyRequest } from '../../../technology/dtos/request/create-technology.request';
@@ -11,6 +11,8 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class TechnologyFormComponent implements OnInit {
   public form: FormGroup = new FormGroup({});
+  @Output() technologyCreated = new EventEmitter<void>();
+  @Output() technologyNotCreated = new EventEmitter<string>();
 
   constructor(private fb: FormBuilder, private service: TechnologyService) {}
 
@@ -30,9 +32,11 @@ export class TechnologyFormComponent implements OnInit {
       next: () => {
         console.log('Technology created successfully');
         // close modal
+        this.technologyCreated.emit();
       },
       error: (error: HttpErrorResponse) => {
         console.error('Error creating technology', error.status);
+        this.technologyNotCreated.emit(error.error.message);
       }
 
     })

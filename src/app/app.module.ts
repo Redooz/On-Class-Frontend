@@ -23,6 +23,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { TechnologyService } from './technology/services/technology.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
+import { ModalMessageComponent } from './components/molecules/modal-message/modal-message.component';
 
 @NgModule({
   declarations: [
@@ -43,6 +44,7 @@ import { TokenInterceptor } from './interceptors/token.interceptor';
     CapacitiesComponent,
     BootcampsComponent,
     TechnologyFormComponent,
+    ModalMessageComponent,
   ],
   imports: [
     BrowserModule,
