@@ -20,4 +20,22 @@ describe('NavTabComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should initialize tabs correctly', () => {
+    expect(component.tabs).toEqual([
+      {
+        title: 'Tecnologías',
+        route: '/library/technologies'
+      },
+      {
+        title: 'Capacidades',
+        route: '/library/capacities'
+      },
+      {
+        title: 'Bootcamps',
+        route: '/library/bootcamps'
+      }
+    ]);
+  });
 });
+

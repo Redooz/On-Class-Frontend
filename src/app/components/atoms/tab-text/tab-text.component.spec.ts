@@ -20,4 +20,12 @@ describe('TabTextComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should have an input property optionText', () => {
+    expect(component.optionText).toBeDefined();
+  });
+
+  it('should have an input property optionRoute', () => {
+    expect(component.optionRoute).toBeDefined();
+  });
 });

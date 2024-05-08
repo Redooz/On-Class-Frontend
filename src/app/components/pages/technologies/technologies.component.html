@@ -1,5 +1,5 @@
 <main class="container">
-  <p class="text">Crear una tecnologia</p>
+  <p class="text">Crear una tecnología</p>
   <span class="button">
     <app-primary-button
       [optionText]="'Crear'"
@@ -8,14 +8,14 @@
   </span>
 </main>
 
-<app-modal *ngIf="modalIsVisible" [optionTitle]="'Crear tecnologia'" (closeEvent)="closeModal()">
+<app-modal *ngIf="modalIsVisible" [optionTitle]="'Crear tecnología'" (closeEvent)="closeModal()">
   <app-technology-form (technologyCreated)="openSuccess()" (technologyNotCreated)="openError($event)"></app-technology-form>
 </app-modal>
 
 <app-modal *ngIf="successIsVisible" (closeEvent)="closeSuccess()">
   <app-modal-message
     (closeEvent)="closeSuccess()"
-    [optionLabel]="'!Tecnologia Creada!'"
+    [optionLabel]="'!Tecnología Creada!'"
   ></app-modal-message>
 </app-modal>
 

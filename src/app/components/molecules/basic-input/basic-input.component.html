@@ -9,8 +9,6 @@
     (input)="onInput($event)"
   />
   <section *ngIf="control.invalid && control.touched" class="text-danger">
-    <span *ngIf="control.errors?.['required']">Este campo es requerido</span>
-    <span *ngIf="control.errors?.['minlength']">Debe tener al menos {{ control.errors?.['minlength'].requiredLength }} caracteres</span>
-    <span *ngIf="control.errors?.['maxlength']">Debe tener como máximo {{ control.errors?.['maxlength'].requiredLength }} caracteres</span>
+    <span> {{getErrorMessage()}} </span>
   </section>
 </div>

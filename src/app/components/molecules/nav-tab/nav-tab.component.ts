@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class NavTabComponent implements OnInit {
   public tabs = [
     {
-      title: 'Tecnologias',
+      title: 'Tecnologías',
       route: '/library/technologies'
     },
     {

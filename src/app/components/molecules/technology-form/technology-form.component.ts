@@ -11,21 +11,21 @@ import { HttpErrorResponse } from '@angular/common/http';
 })
 export class TechnologyFormComponent implements OnInit {
   public form: FormGroup = new FormGroup({});
-  @Output() technologyCreated = new EventEmitter<void>();
-  @Output() technologyNotCreated = new EventEmitter<string>();
   public maxLengthName: number = 50;
   public maxLengthDescription: number = 90;
+  @Output() technologyCreated = new EventEmitter<void>();
+  @Output() technologyNotCreated = new EventEmitter<string>();
 
-  constructor(private fb: FormBuilder, private service: TechnologyService) {}
+  constructor(private fb: FormBuilder, public service: TechnologyService) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
-      name: ['', [Validators.required]],
-      description: ['', [Validators.required]],
+      name: ['', Validators.required],
+      description: ['', Validators.required],
     });
   }
 
-  private createTechnology() {
+  public createTechnology() {
     const { name, description }: CreateTechnologyRequest = this.form.value;
 
     const observable = this.service.createTechnology({ name, description })
@@ -41,6 +41,11 @@ export class TechnologyFormComponent implements OnInit {
 
         if (error.status === 0) {
           this.technologyNotCreated.emit('Conexión al servidor fallida');
+          return;
+        }
+
+        if (error.status === 403) {
+          this.technologyNotCreated.emit('Error de autenticación');
           return;
         }
 

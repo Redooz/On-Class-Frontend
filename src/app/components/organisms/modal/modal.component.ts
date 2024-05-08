@@ -9,7 +9,7 @@ export class ModalComponent implements OnInit {
   @Input() optionTitle?: string = '';
   @Output() closeEvent = new EventEmitter();
 
-  constructor(private elementRef: ElementRef) { }
+  constructor(public elementRef: ElementRef) { }
 
   ngOnInit(): void {
   }
