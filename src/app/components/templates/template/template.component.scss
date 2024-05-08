@@ -1,0 +1,13 @@
+.template-container {
+  display: flex;
+  flex-direction: column;
+
+  .content-container {
+    display: flex;
+    flex-direction: column;
+    margin-top: 40px;
+    margin-left: 416px;
+    margin-right: 80px;
+    margin-bottom: 40px;
+  }
+}

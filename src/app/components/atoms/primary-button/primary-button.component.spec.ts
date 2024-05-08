@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { PrimaryButtonComponent } from './primary-button.component';
 
 describe('PrimaryButtonComponent', () => {
@@ -8,9 +7,8 @@ describe('PrimaryButtonComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ PrimaryButtonComponent ]
-    })
-    .compileComponents();
+      declarations: [PrimaryButtonComponent]
+    }).compileComponents();
 
     fixture = TestBed.createComponent(PrimaryButtonComponent);
     component = fixture.componentInstance;
@@ -19,5 +17,9 @@ describe('PrimaryButtonComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should have an input property optionText', () => {
+    expect(component.optionText).toBeDefined();
   });
 });

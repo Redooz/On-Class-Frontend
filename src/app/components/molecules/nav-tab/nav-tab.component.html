@@ -1,0 +1,8 @@
+<ul class="tab-list">
+  <li *ngFor="let tab of tabs">
+    <app-tab-text
+      [optionRoute]="tab.route"
+      [optionText]="tab.title"
+    ></app-tab-text>
+  </li>
+</ul>

@@ -20,4 +20,18 @@ describe('ModalComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should close the modal', () => {
+    // Arrange
+    const removeSpy = spyOn(component.elementRef.nativeElement, 'remove');
+    const emitSpy = spyOn(component.closeEvent, 'emit');
+
+    // Act
+    component.close();
+
+    // Assert
+    expect(removeSpy).toHaveBeenCalled();
+    expect(emitSpy).toHaveBeenCalled();
+  });
+
 });

@@ -1,0 +1,7 @@
+<div class="container">
+  <img *ngIf="isSuccessful" src="../../../../assets/images/check.svg" alt="Success" class="icon" />
+  <img *ngIf="!isSuccessful" src="../../../../assets/images/error_icon.svg" alt="Error" class="icon" />
+
+  <p class="label"> {{ optionLabel }} </p>
+  <app-primary-button (click)="closeModal()" [optionText]="'Aceptar'"></app-primary-button>
+</div>
