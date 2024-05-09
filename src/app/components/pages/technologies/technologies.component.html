@@ -1,5 +1,11 @@
 <main class="container">
-  <p class="text">Crear una tecnología</p>
+  <p *ngIf="technologies.length == 0; else elseBlock" class="text">Crear una tecnología</p>
+  <ng-template #elseBlock >
+    <div class="list-container">
+      <app-basic-select class="pagination-select"></app-basic-select>
+    </div>
+  </ng-template>
+
   <span class="button">
     <app-primary-button
       [optionText]="'Crear'"

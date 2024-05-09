@@ -1,0 +1,29 @@
+@import '../../../../styles.scss';
+
+.basic-select {
+  border: none;
+  background-color: transparent;
+  color: $primary-color;
+  font-size: $medium-font-size;
+
+  &:hover {
+    background-color: white;
+  }
+
+  option {
+    &:checked {
+      background-color: $primary-color;
+      color: white;
+    }
+
+    &:hover {
+      background-color: $primary-color;
+      color: white;
+    }
+
+  }
+
+
+
+
+}

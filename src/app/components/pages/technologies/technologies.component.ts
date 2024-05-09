@@ -10,6 +10,20 @@ export class TechnologiesComponent implements OnInit {
   public successIsVisible: boolean = false;
   public errorIsVisible: boolean = false;
   public errorMessage: string = '!Error al crear la tecnología!';
+  public technologies: any = [
+    {
+      name: 'Angular',
+      description: 'Angular es un framework de desarrollo para JavaScript creado por Google.',
+    },
+    {
+      name: 'React',
+      description: 'React es una biblioteca de JavaScript para construir interfaces de usuario.',
+    },
+    {
+      name: 'Vue',
+      description: 'Vue.js es un framework progresivo para construir interfaces de usuario.',
+    },
+  ];
 
   constructor() {}
 

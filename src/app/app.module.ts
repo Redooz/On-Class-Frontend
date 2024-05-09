@@ -24,6 +24,7 @@ import { TechnologyService } from './technology/services/technology.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { ModalMessageComponent } from './components/molecules/modal-message/modal-message.component';
+import { BasicSelectComponent } from './components/molecules/basic-select/basic-select.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +46,7 @@ import { ModalMessageComponent } from './components/molecules/modal-message/moda
     BootcampsComponent,
     TechnologyFormComponent,
     ModalMessageComponent,
+    BasicSelectComponent,
   ],
   imports: [
     BrowserModule,

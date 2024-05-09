@@ -3,7 +3,7 @@
 .container {
   height: 70vh;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
 
   .text {
     grid-row: 2;
@@ -12,6 +12,21 @@
     color: $primary-color;
     font-weight: 600;
   }
+
+  .list-container {
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    .pagination-select {
+      margin-left: auto;
+    }
+
+    .technologies-list {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
 
   .button {
     grid-row: 3;
