@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 
 @Component({
   selector: 'app-basic-select',
@@ -14,10 +14,15 @@ export class BasicSelectComponent implements OnInit {
     { value: '4', label: 'Option 4' },
     { value: '5', label: 'Option 5' },
   ];
+  @Output() selectedOption = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  onSelectOption(event: any) {
+    this.selectedOption.emit(event.target.value);
   }
 
 }
