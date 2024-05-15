@@ -20,4 +20,20 @@ describe('BasicSelectComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+  
+  it('should emit selected option', () => {
+    const fixture = TestBed.createComponent(BasicSelectComponent);
+    const component = fixture.componentInstance;
+    const optionValue = 2;
+    let emittedValue: number | undefined;
+
+    component.selectedOption.subscribe((value) => {
+      emittedValue = value;
+    });
+
+    component.onSelectOption({ target: { value: optionValue } });
+
+    expect(emittedValue).toBe(optionValue);
+  });
 });
+

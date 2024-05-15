@@ -28,7 +28,6 @@ export class TechnologiesComponent {
     this.isAscending = !this.isAscending;
     this.buttonIcon = this.isAscending ? 'fa fa-arrow-up-a-z' : 'fa fa-arrow-down-a-z';
     this.getTechnologies(this.selectedSize, 0)
-
   }
 
   onSelectedOptionChange(value: number) {
@@ -49,7 +48,6 @@ export class TechnologiesComponent {
         this.openError('Error al obtener las tecnologías');
       },
     });
-
   }
 
   onPageChange(page: number) {

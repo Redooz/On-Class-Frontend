@@ -34,4 +34,24 @@ describe('TechnologyService', () => {
     expect(req.request.body).toEqual(technology);
     req.flush({});
   });
+
+  it('should send a GET request to retrieve technologies with the specified parameters', () => {
+    const size = 10;
+    const page = 1;
+    const isAscending = true;
+
+    service.getTechnologies(size, page, isAscending).subscribe();
+
+    const req = httpMock.expectOne(`http://localhost:8080/technologies/?size=${size}&page=${page}&isAsc=${isAscending}`);
+    expect(req.request.method).toBe('GET');
+    req.flush({});
+  });
+
+  it('should send a GET request to retrieve the count of technologies', () => {
+    service.getTechnologiesCount().subscribe();
+
+    const req = httpMock.expectOne('http://localhost:8080/technologies/count');
+    expect(req.request.method).toBe('GET');
+    req.flush({});
+  });
 });
