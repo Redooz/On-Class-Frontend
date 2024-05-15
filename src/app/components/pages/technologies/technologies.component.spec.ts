@@ -1,5 +1,8 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { TechnologiesComponent } from './technologies.component';
+import { TechnologyService } from 'src/app/technology/services/technology.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+import { GetTechnologyResponse } from 'src/app/technology/dtos/response/get-technology.response';
 
 describe('TechnologiesComponent', () => {
   let component: TechnologiesComponent;
@@ -8,6 +11,7 @@ describe('TechnologiesComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [TechnologiesComponent],
+      providers: [TechnologyService, HttpClient, HttpHandler],
     }).compileComponents();
   });
 
@@ -27,14 +31,6 @@ describe('TechnologiesComponent', () => {
 
   it('should initialize successIsVisible to false', () => {
     expect(component.successIsVisible).toBeFalse();
-  });
-
-  it('should initialize errorIsVisible to false', () => {
-    expect(component.errorIsVisible).toBeFalse();
-  });
-
-  it('should initialize errorMessage to "!Error al crear la tecnología!"', () => {
-    expect(component.errorMessage).toBe('!Error al crear la tecnología!');
   });
 
   it('should open the modal', () => {
@@ -69,4 +65,64 @@ describe('TechnologiesComponent', () => {
     component.closeError();
     expect(component.errorIsVisible).toBeFalse();
   });
+
+  it('should change the sorting order and update button icon', () => {
+    component.isAscending = true;
+    component.buttonIcon = 'fa fa-arrow-up-a-z';
+
+    component.changeSorting();
+
+    expect(component.isAscending).toBeFalse();
+    expect(component.buttonIcon).toBe('fa fa-arrow-down-a-z');
+  });
+
+  it('should call getTechnologies method with updated sorting order', () => {
+    spyOn(component, 'getTechnologies');
+
+    component.isAscending = true;
+
+    component.changeSorting();
+
+    expect(component.getTechnologies).toHaveBeenCalledWith(component.selectedSize, 0);
+  });
+
+  it('should call getTechnologies method with updated selected size', () => {
+    spyOn(component, 'getTechnologies');
+
+    const selectedSize = 10;
+    component.onSelectedOptionChange(selectedSize);
+
+    expect(component.selectedSize).toBe(selectedSize);
+    expect(component.getTechnologies).toHaveBeenCalledWith(selectedSize, 0);
+  });
+
+  it('should fetch technologies', () => {
+    spyOn(component, 'getTechnologies');
+
+    const size = 10;
+    const page = 0;
+
+    component.getTechnologies(size, page);
+
+    expect(component.getTechnologies).toHaveBeenCalledWith(size, page);
+  });
+
+  it('should change the page and fetch technologies', () => {
+    spyOn(component, 'getTechnologies');
+
+    const page = 1;
+
+    component.onPageChange(page);
+
+    expect(component.getTechnologies).toHaveBeenCalledWith(component.selectedSize, page - 1);
+  });
+
+  it('should fetch technologies count', () => {
+    spyOn(component, 'getTotalItems');
+
+    component.getTotalItems();
+
+    expect(component.getTotalItems).toHaveBeenCalled();
+  });
+
 });

@@ -24,6 +24,9 @@ import { TechnologyService } from './technology/services/technology.service';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { TokenInterceptor } from './interceptors/token.interceptor';
 import { ModalMessageComponent } from './components/molecules/modal-message/modal-message.component';
+import { BasicSelectComponent } from './components/molecules/basic-select/basic-select.component';
+import { OnClassItemComponent } from './components/molecules/on-class-item/on-class-item.component';
+import { PaginationComponent } from './components/molecules/pagination/pagination.component';
 
 @NgModule({
   declarations: [
@@ -45,6 +48,9 @@ import { ModalMessageComponent } from './components/molecules/modal-message/moda
     BootcampsComponent,
     TechnologyFormComponent,
     ModalMessageComponent,
+    BasicSelectComponent,
+    OnClassItemComponent,
+    PaginationComponent,
   ],
   imports: [
     BrowserModule,

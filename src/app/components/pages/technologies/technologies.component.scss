@@ -3,7 +3,7 @@
 .container {
   height: 70vh;
   display: grid;
-  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-rows: repeat(3, 1fr);
 
   .text {
     grid-row: 2;
@@ -13,8 +13,41 @@
     font-weight: 600;
   }
 
-  .button {
+  .list-container {
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+
+    .pagination-select {
+      margin-left: auto;
+
+      .asc-icon-button {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        color: $primary-color;
+        font-size: $medium-font-size;
+      }
+    }
+
+    .technologies-list {
+      display: flex;
+      justify-content: center;
+    }
+  }
+
+  .bottom {
     grid-row: 3;
     place-self: end;
+  }
+
+  .create-button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 80px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+    border-radius: 30px;
   }
 }

@@ -31,7 +31,7 @@ describe('TokenInterceptor', () => {
 
   it('should add Authorization header with access token to the request', () => {
     const dummyRequest = httpClient.get('/api/data');
-    const accessToken = 'eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcxNDg1NTExMiwiZXhwIjoxNzE1MTE4MDU4fQ.1qUr5aQRCvQhtZGQugAYL_DPcLtkyO-iuPIm8fqtsU4InP6Rua7ZREY-eCzHSnkP';
+    const accessToken = 'eyJhbGciOiJIUzM4NCJ9.eyJyb2xlIjoiQURNSU4iLCJzdWIiOiJqb2huLmRvZUBleGFtcGxlLmNvbSIsImlhdCI6MTcxNTc4MDY1MywiZXhwIjoxNzE2MDQzNTk5fQ.KAOQQ8DmjVqfCXo3ls90biDTw4dURptoM-9bNn-m8gPCiWLTLuyaSkqsLtAzEjv8';
 
     dummyRequest.subscribe();
 

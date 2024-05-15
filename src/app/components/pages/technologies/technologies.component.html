@@ -1,15 +1,52 @@
 <main class="container">
-  <p class="text">Crear una tecnología</p>
-  <span class="button">
-    <app-primary-button
-      [optionText]="'Crear'"
-      (click)="openModal()"
-    ></app-primary-button>
-  </span>
+  <p *ngIf="technologies.length == 0; else elseBlock" class="text">
+    Crear una tecnología
+  </p>
+  <ng-template #elseBlock>
+    <div class="list-container">
+      <div class="pagination-select">
+        <app-basic-select
+          (selectedOption)="onSelectedOptionChange($event)"
+          [options]="sizePaginationOptions"
+          class="pagination-select"
+        ></app-basic-select>
+        <button class="asc-icon-button" (click)="changeSorting()">
+          <i class="fa-solid {{ buttonIcon }}"></i>
+        </button>
+      </div>
+
+      <app-on-class-item
+        *ngFor="let technology of technologies"
+        [optionTitle]="technology.name"
+        [optionDescription]="technology.description"
+        [optionIcon]="'ellipsis-vertical'"
+      ></app-on-class-item>
+    </div>
+    <span class="bottom">
+      <app-pagination
+        [totalItems]="totalItems"
+        [itemsPerPage]="selectedSize"
+        (pageChanged)="onPageChange($event)"
+      ></app-pagination>
+    </span>
+  </ng-template>
+
+  <app-primary-button
+    class="create-button"
+    [optionText]="'Crear'"
+    (click)="openModal()"
+  ></app-primary-button>
 </main>
 
-<app-modal *ngIf="modalIsVisible" [optionTitle]="'Crear tecnología'" (closeEvent)="closeModal()">
-  <app-technology-form (technologyCreated)="openSuccess()" (technologyNotCreated)="openError($event)"></app-technology-form>
+<app-modal
+  *ngIf="modalIsVisible"
+  [optionTitle]="'Crear tecnología'"
+  (closeEvent)="closeModal()"
+>
+  <app-technology-form
+    (technologyCreated)="openSuccess()"
+    (technologyNotCreated)="openError($event)"
+  ></app-technology-form>
 </app-modal>
 
 <app-modal *ngIf="successIsVisible" (closeEvent)="closeSuccess()">
