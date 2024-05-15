@@ -16,4 +16,8 @@ export class TechnologyService {
   getTechnologies(size: number, page: number, isAscending: boolean) {
     return this.httpCLient.get(this.apiUrl + `?size=${size}&page=${page}&isAsc=${isAscending}`);
   }
+
+  getTechnologiesCount() {
+    return this.httpCLient.get(this.apiUrl + 'count');
+  }
 }

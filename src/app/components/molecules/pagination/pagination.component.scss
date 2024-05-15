@@ -1,0 +1,29 @@
+@import '../../../../styles.scss';
+
+.pagination {
+  display: flex;
+  justify-content: space-between;
+  width: 200px;
+
+  .previous, .next {
+    cursor: pointer;
+    background-color: transparent;
+    border: none;
+    i {
+      color: $primary-color;
+    }
+  }
+
+  .current {
+    cursor: pointer;
+    background-color: $primary-color;
+    color: white;
+    border: none;
+    border-radius: 50%;
+    padding-left: 8px;
+    padding-right: 8px;
+    box-shadow: 0 0 10px 0 rgba($primary-color, 0.9);
+
+  }
+
+}

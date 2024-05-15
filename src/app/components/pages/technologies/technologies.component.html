@@ -23,7 +23,11 @@
       ></app-on-class-item>
     </div>
     <span class="bottom">
-      <p>pagination-select</p>
+      <app-pagination
+        [totalItems]="totalItems"
+        [itemsPerPage]="selectedSize"
+        (pageChanged)="onPageChange($event)"
+      ></app-pagination>
     </span>
   </ng-template>
 

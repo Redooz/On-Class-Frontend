@@ -18,6 +18,7 @@ export class TechnologiesComponent {
   public selectedSize: number = 5;
   public buttonIcon: string = 'fa fa-arrow-up-a-z';
   public sizePaginationOptions = selectPagination
+  public totalItems: number = 0;
 
   constructor(public service: TechnologyService) {
     this.getTechnologies(this.selectedSize, 0);
@@ -27,6 +28,7 @@ export class TechnologiesComponent {
     this.isAscending = !this.isAscending;
     this.buttonIcon = this.isAscending ? 'fa fa-arrow-up-a-z' : 'fa fa-arrow-down-a-z';
     this.getTechnologies(this.selectedSize, 0)
+
   }
 
   onSelectedOptionChange(value: number) {
@@ -40,12 +42,33 @@ export class TechnologiesComponent {
     observable.subscribe({
       next: (response: any) => {
         this.technologies = response;
+        this.getTotalItems();
       },
       error: (error) => {
         console.error('Error getting technologies', error);
         this.openError('Error al obtener las tecnologías');
       },
     });
+
+  }
+
+  onPageChange(page: number) {
+    this.getTechnologies(this.selectedSize, page - 1);
+  }
+
+  getTotalItems() {
+    const observable = this.service.getTechnologiesCount();
+
+    observable.subscribe({
+      next: (response: any) => {
+        this.totalItems = response;
+      },
+      error: (error) => {
+        console.error('Error getting technologies count', error);
+        this.openError('Error al obtener la cantidad de tecnologías');
+      },
+    });
+
   }
 
   openModal() {
@@ -63,6 +86,7 @@ export class TechnologiesComponent {
 
   closeSuccess() {
     this.successIsVisible = false;
+    this.getTechnologies(this.selectedSize, 0);
   }
 
   openError(error: string) {
