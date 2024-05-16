@@ -27,6 +27,9 @@ import { ModalMessageComponent } from './components/molecules/modal-message/moda
 import { BasicSelectComponent } from './components/molecules/basic-select/basic-select.component';
 import { OnClassItemComponent } from './components/molecules/on-class-item/on-class-item.component';
 import { PaginationComponent } from './components/molecules/pagination/pagination.component';
+import { CapacityFormComponent } from './components/molecules/capacity-form/capacity-form.component';
+import { BasicMultiselectComponent } from './components/molecules/basic-multiselect/basic-multiselect.component';
+import { SelectedValueTextComponent } from './components/atoms/selected-value-text/selected-value-text.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +54,9 @@ import { PaginationComponent } from './components/molecules/pagination/paginatio
     BasicSelectComponent,
     OnClassItemComponent,
     PaginationComponent,
+    CapacityFormComponent,
+    BasicMultiselectComponent,
+    SelectedValueTextComponent,
   ],
   imports: [
     BrowserModule,
