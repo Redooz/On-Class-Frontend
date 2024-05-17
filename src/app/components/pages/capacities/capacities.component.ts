@@ -8,7 +8,7 @@ import { TechnologyService } from 'src/app/technology/services/technology.servic
   styleUrls: ['./capacities.component.scss']
 })
 export class CapacitiesComponent {
-  public modalIsVisible: boolean = true;
+  public modalIsVisible: boolean = false;
   public successIsVisible: boolean = false;
   public errorIsVisible: boolean = false;
   public errorMessage: string = '!Error al crear la capacidad!';
