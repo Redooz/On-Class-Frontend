@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { GetTechnologyResponse } from 'src/app/technology/dtos/response/get-technology.response';
 import { TechnologyService } from '../../../technology/services/technology.service';
-import { selectPagination } from './utils/technologies.constants';
+import { selectPagination } from '../utils/technologies.constants';
 
 @Component({
   selector: 'app-technologies',
