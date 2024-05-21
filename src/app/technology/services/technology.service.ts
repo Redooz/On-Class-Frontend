@@ -13,8 +13,12 @@ export class TechnologyService {
     return this.httpCLient.post(this.apiUrl, technology);
   }
 
-  getTechnologies(size: number, page: number, isAscending: boolean) {
-    return this.httpCLient.get(this.apiUrl + `?size=${size}&page=${page}&isAsc=${isAscending}`);
+  getTechnologiesPaginated(size: number, page: number, isAscending: boolean) {
+    return this.httpCLient.get(this.apiUrl + `?size=${size }&page=${page}&isAsc=${isAscending}`);
+  }
+
+  getAllAvailableTechnologies() {
+    return this.httpCLient.get(this.apiUrl + 'available');
   }
 
   getTechnologiesCount() {

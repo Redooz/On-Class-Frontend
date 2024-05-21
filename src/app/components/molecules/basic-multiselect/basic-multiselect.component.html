@@ -1,0 +1,6 @@
+<div class="multiselect-container">
+  <label for="basic-multiselect" class="basic-label"> {{ optionLabel }} </label>
+  <select class="basic-multiselect" name="basic-multiselect" id="basic-multiselect" (change)="onSelectOption($event)">
+    <option *ngFor="let option of options" [value]="option.value"> {{ option.label }} </option>
+  </select>
+</div>

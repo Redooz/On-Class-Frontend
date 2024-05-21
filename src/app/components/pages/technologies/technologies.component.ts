@@ -36,7 +36,7 @@ export class TechnologiesComponent {
   }
 
   getTechnologies(size: number, page: number) {
-    const observable = this.service.getTechnologies(size, page, this.isAscending);
+    const observable = this.service.getTechnologiesPaginated(size, page, this.isAscending);
 
     observable.subscribe({
       next: (response: any) => {

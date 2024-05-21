@@ -40,7 +40,7 @@ describe('TechnologyService', () => {
     const page = 1;
     const isAscending = true;
 
-    service.getTechnologies(size, page, isAscending).subscribe();
+    service.getTechnologiesPaginated(size, page, isAscending).subscribe();
 
     const req = httpMock.expectOne(`http://localhost:8080/technologies/?size=${size}&page=${page}&isAsc=${isAscending}`);
     expect(req.request.method).toBe('GET');
