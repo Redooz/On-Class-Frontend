@@ -14,7 +14,7 @@ export class BasicSelectComponent implements OnInit {
     { value: '4', label: 'Option 4' },
     { value: '5', label: 'Option 5' },
   ];
-  @Output() selectedOption = new EventEmitter<number>();
+  @Output() selectedOption = new EventEmitter<any>();
 
   constructor() { }
 

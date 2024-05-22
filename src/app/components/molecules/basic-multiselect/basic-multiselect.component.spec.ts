@@ -20,4 +20,10 @@ describe('BasicMultiselectComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should emit selected option', () => {
+    const spy = spyOn(component.selectedOption, 'emit');
+    component.onSelectOption({ target: { value: '1' } });
+    expect(spy).toHaveBeenCalledWith('1');
+  });
 });

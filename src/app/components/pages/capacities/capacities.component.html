@@ -1,13 +1,52 @@
 <main class="container">
-  <p class="text">
+  <p *ngIf="capacities.length == 0; else elseBlock" class="text">
     Crear una capacidad
   </p>
+
+  <ng-template #elseBlock>
+    <div class="list-container">
+      <div class="pagination-select">
+        <app-basic-select
+          [options]="orderByOptions"
+          (selectedOption)="onSelectedOrderByChange($event)"
+          class="pagination-select"
+        ></app-basic-select>
+        <app-basic-select
+          (selectedOption)="onSelectedOptionChange($event)"
+          [options]="sizePaginationOptions"
+          class="pagination-select"
+        ></app-basic-select>
+        <button class="asc-icon-button" (click)="changeSorting()">
+          <i class="fa-solid {{ buttonIcon }}"></i>
+        </button>
+      </div>
+
+      <app-on-class-item
+        *ngFor="let capacity of capacities"
+        [optionTitle]="capacity.name"
+        [optionDescription]="capacity.description"
+        [optionIcon]="'ellipsis-vertical'"
+      ></app-on-class-item>
+    </div>
+
+    <div class="bottom">
+      <app-pagination
+      [totalItems]="totalItems"
+      [itemsPerPage]="selectedSize"
+      (pageChanged)="onPageChange($event)"
+      ></app-pagination>
+    </div>
+  </ng-template>
+
   <app-primary-button
     class="create-button"
     [optionText]="'Crear'"
     (click)="openModal()"
   ></app-primary-button>
+
 </main>
+
+
 
 <app-modal
   *ngIf="modalIsVisible"
