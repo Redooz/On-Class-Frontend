@@ -54,4 +54,13 @@ describe('TechnologyService', () => {
     expect(req.request.method).toBe('GET');
     req.flush({});
   });
+
+  it('should send a GET request to retrieve all available technologies', () => {
+    service.getAllAvailableTechnologies().subscribe();
+
+    const req = httpMock.expectOne('http://localhost:8080/technologies/available');
+    expect(req.request.method).toBe('GET');
+    req.flush({});
+  });
+
 });

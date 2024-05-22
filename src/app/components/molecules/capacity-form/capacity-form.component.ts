@@ -21,14 +21,13 @@ export class CapacityFormComponent implements OnInit {
   @Output() capacityNotCreated = new EventEmitter<string>();
 
 
-  constructor(private fb: FormBuilder, private service: CapacityService) { }
+  constructor(public fb: FormBuilder, public service: CapacityService) { }
 
   ngOnInit(): void {
     this.form =  this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
     });
-
   }
 
   createCapacity() {

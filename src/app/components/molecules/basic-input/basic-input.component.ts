@@ -6,7 +6,7 @@ import {
   OnInit,
   Output,
 } from '@angular/core';
-import { FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
+import { ControlValueAccessor, FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-basic-input',
@@ -20,8 +20,9 @@ import { FormControl, NG_VALUE_ACCESSOR, Validators } from '@angular/forms';
     },
   ],
 })
-export class BasicInputComponent implements OnInit {
+export class BasicInputComponent implements OnInit, ControlValueAccessor {
   private onChange = (value: string) => {};
+  private onTouch = () => {};
   public control: FormControl = new FormControl();
   @Input() optionLabel: string = '';
   @Input() optionPlaceholder: string = '';
@@ -73,6 +74,6 @@ export class BasicInputComponent implements OnInit {
   }
 
   registerOnTouched(fn: () => void): void {
-    // implement if needed
+    this.onTouch = fn;
   }
 }

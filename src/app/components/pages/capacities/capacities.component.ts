@@ -16,7 +16,7 @@ export class CapacitiesComponent {
   public successIsVisible: boolean = false;
   public errorIsVisible: boolean = false;
   public errorMessage: string = '!Error al crear la capacidad!';
-  public technologiesForSelect: GetTechnologyResponse[] = [];
+  public technologiesForSelect: any[] = [];
   public availableTechnologies: GetTechnologyResponse[] = [];
   public capacities: GetCapacityResponse[] = [];
   public isAscending: boolean = true;
