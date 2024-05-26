@@ -1,1 +1,40 @@
-<p>bootcamps works!</p>
+<main class="container">
+  <p class="text">
+    Crear un bootcamp
+  </p>
+
+  <app-primary-button
+    class="create-button"
+    [optionText]="'Crear'"
+    (click)="openModal()"
+  ></app-primary-button>
+</main>
+
+<app-modal
+  *ngIf="modalIsVisible"
+  [optionTitle]="'Crear bootcamp'"
+  (closeEvent)="closeModal()"
+>
+  <app-bootcamp-form
+    [capacitiesForSelect]="capacitiesForSelect"
+    [availableCapacities]="availableCapacities"
+    (bootcampCreated)="openSuccess()"
+    (bootcampNotCreated)="openError($event)"
+  ></app-bootcamp-form>
+</app-modal>
+
+<app-modal *ngIf="successIsVisible" (closeEvent)="closeSuccess()">
+  <app-modal-message
+    (closeEvent)="closeSuccess()"
+    [optionLabel]="'¡Bootcamp Creado!'"
+  ></app-modal-message>
+</app-modal>
+
+<app-modal *ngIf="errorIsVisible" (closeEvent)="closeError()">
+  <app-modal-message
+    (closeEvent)="closeError()"
+    [isSuccessful]="false"
+    [optionLabel]="errorMessage"
+  ></app-modal-message>
+</app-modal>
+

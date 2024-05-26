@@ -5,6 +5,7 @@ import { selectPagination } from '../utils/technologies.constants';
 import { CapacityService } from 'src/app/capacity/services/capacity.service';
 import { CapacityOrderByOption } from 'src/app/capacity/utils/capacity-order-by-option';
 import { GetCapacityResponse } from 'src/app/capacity/dtos/response/get-capacity.response';
+import { SelectItem } from '../utils/select-items';
 
 @Component({
   selector: 'app-capacities',
@@ -16,7 +17,7 @@ export class CapacitiesComponent {
   public successIsVisible: boolean = false;
   public errorIsVisible: boolean = false;
   public errorMessage: string = '!Error al crear la capacidad!';
-  public technologiesForSelect: any[] = [];
+  public technologiesForSelect: SelectItem[] = [];
   public availableTechnologies: GetTechnologyResponse[] = [];
   public capacities: GetCapacityResponse[] = [];
   public isAscending: boolean = true;
@@ -64,6 +65,11 @@ export class CapacitiesComponent {
         this.getTotalItems();
       },
       error: (error) => {
+        if (error.status === 403) {
+          this.openError('Error de autenticación, por favor inicie sesión');
+          return;
+        }
+
         console.error('Error getting capacities', error);
         this.openError('Error al obtener las capacidades');
       },

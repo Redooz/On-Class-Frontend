@@ -24,4 +24,8 @@ export class CapacityService {
     return this.httpCLient.get(this.apiUrl + 'count');
   }
 
+  getAvailableCapacities() {
+    return this.httpCLient.get(this.apiUrl + 'available');
+  }
+
 }

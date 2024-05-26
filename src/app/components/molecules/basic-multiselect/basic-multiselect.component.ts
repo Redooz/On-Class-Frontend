@@ -1,4 +1,5 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { SelectItem } from '../../pages/utils/select-items';
 
 @Component({
   selector: 'app-basic-multiselect',
@@ -7,7 +8,7 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class BasicMultiselectComponent {
   @Input() optionLabel: string = '';
-  @Input() options: any[] = [
+  @Input() options: SelectItem[] = [
     { value: '1', label: 'Option 1' },
     { value: '2', label: 'Option 2' },
     { value: '3', label: 'Option 3' },

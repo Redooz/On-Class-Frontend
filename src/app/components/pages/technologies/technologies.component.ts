@@ -44,6 +44,11 @@ export class TechnologiesComponent {
         this.getTotalItems();
       },
       error: (error) => {
+        if (error.status === 403) {
+          this.openError('Error de autenticación, por favor inicie sesión');
+          return;
+        }
+
         console.error('Error getting technologies', error);
         this.openError('Error al obtener las tecnologías');
       },
