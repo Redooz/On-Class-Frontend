@@ -30,6 +30,7 @@ import { PaginationComponent } from './components/molecules/pagination/paginatio
 import { CapacityFormComponent } from './components/molecules/capacity-form/capacity-form.component';
 import { BasicMultiselectComponent } from './components/molecules/basic-multiselect/basic-multiselect.component';
 import { SelectedValueTextComponent } from './components/atoms/selected-value-text/selected-value-text.component';
+import { BootcampFormComponent } from './components/molecules/bootcamp-form/bootcamp-form.component';
 
 @NgModule({
   declarations: [
@@ -57,6 +58,7 @@ import { SelectedValueTextComponent } from './components/atoms/selected-value-te
     CapacityFormComponent,
     BasicMultiselectComponent,
     SelectedValueTextComponent,
+    BootcampFormComponent,
   ],
   imports: [
     BrowserModule,

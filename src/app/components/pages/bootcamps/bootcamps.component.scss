@@ -1,0 +1,24 @@
+@import "../../../../styles.scss";
+
+.container {
+  height: 70vh;
+  display: grid;
+  grid-template-rows: repeat(3, 1fr);
+
+  .text {
+    grid-row: 2;
+    place-self: center;
+    font-size: $medium-large-font-size;
+    color: $primary-color;
+    font-weight: 600;
+  }
+
+  .create-button {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    margin: 80px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.9);
+    border-radius: 30px;
+  }
+}

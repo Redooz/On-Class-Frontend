@@ -4,6 +4,7 @@ import { CreateCapacityRequest } from 'src/app/capacity/dtos/request/create-capa
 import { TechnologyItem } from 'src/app/capacity/dtos/technology-item';
 import { CapacityService } from 'src/app/capacity/services/capacity.service';
 import { GetTechnologyResponse } from 'src/app/technology/dtos/response/get-technology.response';
+import { SelectItem } from '../../pages/utils/select-items';
 
 @Component({
   selector: 'app-capacity-form',
@@ -15,7 +16,7 @@ export class CapacityFormComponent implements OnInit {
   public maxLengthName: number = 50;
   public maxLengthDescription: number = 90;
   public selectedTechnologies: Set<TechnologyItem> = new Set();
-  @Input() technologiesForSelect: any[] = [];
+  @Input() technologiesForSelect: SelectItem[] = [];
   @Input() availableTechnologies: GetTechnologyResponse[] = [];
   @Output() capacityCreated = new EventEmitter<void>();
   @Output() capacityNotCreated = new EventEmitter<string>();
