@@ -1,11 +1,11 @@
 import { Component } from '@angular/core';
-import { GetTechnologyResponse } from 'src/app/technology/dtos/response/get-technology.response';
-import { TechnologyService } from 'src/app/technology/services/technology.service';
 import { selectPagination } from '../utils/technologies.constants';
-import { CapacityService } from 'src/app/capacity/services/capacity.service';
-import { CapacityOrderByOption } from 'src/app/capacity/utils/capacity-order-by-option';
-import { GetCapacityResponse } from 'src/app/capacity/dtos/response/get-capacity.response';
 import { SelectItem } from '../utils/select-items';
+import { GetTechnologyResponse } from '../../../technology/dtos/response/get-technology.response';
+import { GetCapacityResponse } from '../../../capacity/dtos/response/get-capacity.response';
+import { CapacityOrderByOption } from 'src/app/capacity/utils/capacity-order-by-option';
+import { TechnologyService } from '../../../technology/services/technology.service';
+import { CapacityService } from '../../../capacity/services/capacity.service';
 
 @Component({
   selector: 'app-capacities',

@@ -1,10 +1,10 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CreateCapacityRequest } from 'src/app/capacity/dtos/request/create-capacity.request';
-import { TechnologyItem } from 'src/app/capacity/dtos/technology-item';
 import { CapacityService } from 'src/app/capacity/services/capacity.service';
 import { GetTechnologyResponse } from 'src/app/technology/dtos/response/get-technology.response';
 import { SelectItem } from '../../pages/utils/select-items';
+import { OnClassItem } from '../../../utils/on-class-item';
 
 @Component({
   selector: 'app-capacity-form',
@@ -15,7 +15,7 @@ export class CapacityFormComponent implements OnInit {
   public form: FormGroup = new FormGroup({});
   public maxLengthName: number = 50;
   public maxLengthDescription: number = 90;
-  public selectedTechnologies: Set<TechnologyItem> = new Set();
+  public selectedTechnologies: Set<OnClassItem> = new Set();
   @Input() technologiesForSelect: SelectItem[] = [];
   @Input() availableTechnologies: GetTechnologyResponse[] = [];
   @Output() capacityCreated = new EventEmitter<void>();

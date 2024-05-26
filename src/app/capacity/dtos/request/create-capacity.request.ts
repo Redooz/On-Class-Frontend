@@ -1,7 +1,7 @@
-import { TechnologyItem } from "../technology-item";
+import { OnClassItem } from "../../../utils/on-class-item";
 
 export interface CreateCapacityRequest {
   name: string;
   description: string;
-  technologies: Array<TechnologyItem>
+  technologies: Array<OnClassItem>
 }

@@ -13,6 +13,30 @@
     font-weight: 600;
   }
 
+  .list-container {
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+
+    .pagination-select {
+      margin-left: auto;
+
+      .asc-icon-button {
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+        color: $primary-color;
+        font-size: $medium-font-size;
+      }
+    }
+  }
+
+  .bottom {
+    grid-row: 3;
+    place-self: end;
+  }
+
   .create-button {
     position: fixed;
     bottom: 0;
