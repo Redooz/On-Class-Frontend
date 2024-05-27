@@ -1,6 +1,11 @@
 import { Component } from '@angular/core';
-import { GetCapacityResponse } from 'src/app/capacity/dtos/response/get-capacity.response';
-import { CapacityService } from 'src/app/capacity/services/capacity.service';
+import { selectPagination } from '../utils/technologies.constants';
+import { OnClassItem } from '../../../utils/on-class-item';
+import { GetCapacityResponse } from '../../../capacity/dtos/response/get-capacity.response';
+import { BootcampOrderByOption } from '../../../bootcamp/utils/bootcamp-order-by-option';
+import { GetBootcampResponse } from '../../../bootcamp/dtos/response/get-bootcamp.request';
+import { CapacityService } from '../../../capacity/services/capacity.service';
+import { BootcampService } from '../../../bootcamp/services/bootcamp.service';
 
 @Component({
   selector: 'app-bootcamps',
@@ -13,11 +18,70 @@ export class BootcampsComponent {
   public errorIsVisible: boolean = false;
   public errorMessage: string = '!Error al crear el bootcamp!';
   public totalItems: number = 0;
-  public capacitiesForSelect: any[] = [];
+  public capacitiesForSelect: OnClassItem[] = [];
   public availableCapacities: GetCapacityResponse[] = [];
+  public isAscending: boolean = true;
+  public selectedOrderBy: BootcampOrderByOption = BootcampOrderByOption.NAME;
+  public selectedSize: number = 5;
+  public buttonIcon: string = 'fa fa-arrow-up';
+  public sizePaginationOptions = selectPagination;
+  public orderByOptions = [
+    { value: BootcampOrderByOption.NAME, label: 'Nombre' },
+    { value: BootcampOrderByOption.CAPACITY_COUNT, label: 'Cantidad de capacidades' },
+  ];
+  public bootcamps: GetBootcampResponse[] = [];
 
-  constructor(private capacityService: CapacityService) {
+  constructor(private capacityService: CapacityService, private bootcampService: BootcampService) {
     this.getAvailableCapacities();
+    this.getBootcamps(this.selectedSize, 0, this.selectedOrderBy);
+  }
+
+  changeSorting() {
+    this.isAscending = !this.isAscending;
+    this.buttonIcon = this.isAscending ? 'fa fa-arrow-up' : 'fa fa-arrow-down';
+    this.getBootcamps(this.selectedSize, 0, this.selectedOrderBy);
+  }
+
+  onSelectedOptionChange(value: number) {
+    this.selectedSize = value;
+    this.getBootcamps(this.selectedSize, 0, this.selectedOrderBy);
+  }
+
+  onPageChange(page: number) {
+    this.getBootcamps(this.selectedSize, page - 1, this.selectedOrderBy);
+  }
+
+  onSelectedOrderByChange(value: BootcampOrderByOption) {
+    this.selectedOrderBy = value;
+    this.getBootcamps(this.selectedSize, 0, this.selectedOrderBy);
+  }
+
+  getBootcamps(size: number, page: number, orderBy: BootcampOrderByOption) {
+    const observable = this.bootcampService.getBootcampsPaginated(size, page, this.isAscending, orderBy);
+
+    observable.subscribe({
+      next: (response: any) => {
+        this.bootcamps = response;
+      },
+      error: (error) => {
+        console.error('Error fetching bootcamps', error);
+        this.openError('Error al obtener los bootcamps');
+      }
+    })
+  }
+
+  getTotalItems() {
+    const observable = this.bootcampService.getBootcampsCount();
+
+    observable.subscribe({
+      next: (response: any) => {
+        this.totalItems = response;
+      },
+      error: (error) => {
+        console.error('Error fetching bootcamps count', error);
+        this.openError('Error al obtener la cantidad de bootcamps');
+      }
+    })
   }
 
   getAvailableCapacities() {
