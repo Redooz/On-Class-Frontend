@@ -1,0 +1,30 @@
+@import '../../../../styles.scss';
+
+.item-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid $primary-color;
+
+  .text-container {
+    width: 100%;
+
+    .title {
+      margin-bottom: 0;
+    }
+  }
+
+  .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    color: white;
+    background-color: $primary-color;
+    border-radius: 50%;
+    padding: 7px;
+    width: 18px;
+    height: 18px;
+  }
+}
+

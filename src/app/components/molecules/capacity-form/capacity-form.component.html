@@ -1,0 +1,34 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+  <app-basic-input
+    [optionLabel]="'Nombre'"
+    [optionPlaceholder]="'Una capacidad'"
+    [optionIsRequired]="true"
+    [optionMaxLength]="maxLengthName"
+    formControlName="name"
+    (valueChange)="onValueChange('name', $event)"
+  ></app-basic-input>
+
+  <app-basic-input
+    [optionLabel]="'Descripción'"
+    [optionPlaceholder]="'Descripción de la capacidad'"
+    [optionIsRequired]="true"
+    [optionMaxLength]="maxLengthDescription"
+    formControlName="description"
+    (valueChange)="onValueChange('description', $event)"
+  ></app-basic-input>
+
+  <app-basic-multiselect
+  [options]="technologiesForSelect"
+  [optionLabel]="'Tecnologías'"
+  (selectedOption)="onSelectOption($event)"
+  ></app-basic-multiselect>
+
+  <div class="selected-technologies">
+    <app-selected-value-text
+      *ngFor="let technology of selectedTechnologies"
+      [optionText]="technology.name"
+      (click)="removeSelectedTechnology(technology.name)"
+    ></app-selected-value-text>
+  </div>
+  <app-primary-button [optionText]="'Crear'"></app-primary-button>
+</form>

@@ -1,13 +1,13 @@
 @import '../../../../styles.scss';
 
 .primary_button {
+  cursor: pointer;
   font-family: $font-family;
   background-color: $primary-color;
   color: $very-light-gray;
   font-size: $medium-font-size;
   font-weight: bold;
   border: none;
-  width: 94px;
   height: 40px;
   border-radius: 30px;
   padding: 0px 24px;

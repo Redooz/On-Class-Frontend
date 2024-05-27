@@ -1,0 +1,17 @@
+@import '../../../../styles.scss';
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 16px;
+
+  .label {
+    font-size: $xl-font-size;
+  }
+
+  .icon {
+    width: 100px;
+  }
+}

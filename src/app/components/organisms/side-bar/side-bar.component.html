@@ -1,9 +1,7 @@
-<div class="side-bar">
+<nav class="side-bar">
   <img src="../../../../assets/images/on-class-logo.png" alt="on class logo" class="image">
 
-  <ul class="items-list">
-    <li *ngFor="let item of menuItems" class="menu-item" >
-      <app-side-bar-item [optionIcon]="item.optionIcon" [optionLabel]="item.optionLabel" [optionRoute]="item.optionRoute"></app-side-bar-item>
-    </li>
+  <ul class="items-list" >
+    <app-side-bar-item *ngFor="let item of menuItems" [optionIcon]="item.optionIcon" [optionLabel]="item.optionLabel" [optionRoute]="item.optionRoute"></app-side-bar-item>
   </ul>
-</div>
+</nav>

@@ -1,0 +1,34 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+  <app-basic-input
+    [optionLabel]="'Nombre'"
+    [optionPlaceholder]="'Un bootcamp'"
+    [optionIsRequired]="true"
+    [optionMaxLength]="maxLengthName"
+    formControlName="name"
+    (valueChange)="onValueChange('name', $event)"
+  ></app-basic-input>
+
+  <app-basic-input
+    [optionLabel]="'Descripción'"
+    [optionPlaceholder]="'Descripción del bootcamp'"
+    [optionIsRequired]="true"
+    [optionMaxLength]="maxLengthDescription"
+    formControlName="description"
+    (valueChange)="onValueChange('description', $event)"
+  ></app-basic-input>
+
+  <app-basic-multiselect
+  [options]="capacitiesForSelect"
+  [optionLabel]="'Capacidades'"
+  (selectedOption)="onSelectOption($event)"
+  ></app-basic-multiselect>
+
+  <div class="selected-capacities">
+    <app-selected-value-text
+      *ngFor="let capacity of selectedCapacities"
+      [optionText]="capacity.name"
+      (click)="removeSelectedCapacity(capacity.name)"
+    ></app-selected-value-text>
+  </div>
+  <app-primary-button [optionText]="'Crear'"></app-primary-button>
+</form>

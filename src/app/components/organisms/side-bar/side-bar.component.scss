@@ -5,6 +5,7 @@
   height: 100vh;
   width: 394px;
   align-items: center;
+  position: fixed;
 
   .image {
     width: 200px;
@@ -20,18 +21,10 @@
     padding: 0;
     list-style-type: none;
 
-    .menu-item {
+    :first-child {
       width: 100%;
-      display: grid;
-      grid-template-rows: 1fr;
-      grid-template-columns: repeat(3, 1fr);
-      background-color: #E7833D66;
-
-      :first-child {
-        grid-column-start: 2;
-      }
     }
 
   }
-}
 
+}

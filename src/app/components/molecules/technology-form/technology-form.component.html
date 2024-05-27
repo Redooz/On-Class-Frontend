@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+  <app-basic-input
+    [optionLabel]="'Nombre'"
+    [optionPlaceholder]="'Una tecnología'"
+    [optionIsRequired]="true"
+    [optionMaxLength]="maxLengthName"
+    formControlName="name"
+    (valueChange)="onValueChange('name', $event)"
+  ></app-basic-input>
+  <app-basic-input
+    [optionLabel]="'Descripción'"
+    [optionPlaceholder]="'Lorem ipsum dolor sit amet'"
+    [optionIsRequired]="true"
+    [optionMaxLength]="maxLengthDescription"
+    formControlName="description"
+    (valueChange)="onValueChange('description', $event)"
+  ></app-basic-input>
+  <app-primary-button [optionText]="'Crear'"></app-primary-button>
+</form>

@@ -1,0 +1,19 @@
+<div class="pagination">
+  <button
+    class="previous"
+    (click)="changePage(currentPage - 1)"
+    [disabled]="currentPage === 1"
+  >
+    <i class="fa-solid fa-less-than"></i>
+    {{ currentPage - 1 }}
+  </button>
+  <span class="current">{{ currentPage }}</span>
+  <button
+    class="next"
+    (click)="changePage(currentPage + 1)"
+    [disabled]="currentPage === totalPages"
+  >
+  {{ currentPage + 1 }}
+  <i class="fa-solid fa-greater-than"></i>
+  </button>
+</div>

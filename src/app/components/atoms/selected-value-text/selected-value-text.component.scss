@@ -1,0 +1,15 @@
+@import '../../../../styles.scss';
+
+.selected-value {
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 8px 8px 0;
+  padding: 8px 16px;
+  border-radius: 30px;
+  background-color: #E7833D14;
+  color: $gray;
+  font-size: $small-font-size;
+  font-family: $font-family;
+}

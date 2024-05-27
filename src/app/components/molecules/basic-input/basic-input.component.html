@@ -1,4 +1,14 @@
 <div class="input-container">
-  <label for="basic-input" class="basic-label"> {{optionLabel}} </label>
-  <input id="basic-input" class="basic-input" type="text" placeholder=" {{optionPlaceholder}} ">
+  <label for="basic-input" class="basic-label"> {{ optionLabel }} </label>
+  <input
+    class="basic-input"
+    [type]="optionInputType"
+    [required]="optionIsRequired"
+    placeholder=" {{ optionPlaceholder }} "
+    [formControl]="control"
+    (input)="onInput($event)"
+  />
+  <section *ngIf="control.invalid && control.touched" class="text-danger">
+    <span> {{getErrorMessage()}} </span>
+  </section>
 </div>

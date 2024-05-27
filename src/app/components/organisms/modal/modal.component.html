@@ -1,9 +1,11 @@
 <div class="modal-container">
   <header class="modal__header">
     <h2 class="modal__title"> {{optionTitle}} </h2>
-    <app-close-button></app-close-button>
+    <app-close-button (click)="close()" ></app-close-button>
   </header>
   <main class="modal__content">
     <ng-content></ng-content>
   </main>
 </div>
+
+<div class="modal-backdrop" (click)="close()" ></div>
