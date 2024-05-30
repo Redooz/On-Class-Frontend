@@ -1,15 +1,28 @@
 @import '../../../../styles.scss';
 
-.top {
+.container {
   display: flex;
-  align-items: center;
-  padding-bottom: 12px;
-  border-bottom: 1px solid $primary-color;
+  flex-direction: column;
 
-  .title {
-    margin-right: 24px;
+  .text {
+    place-self: center;
+    font-size: $medium-large-font-size;
+    color: $primary-color;
+    font-weight: 600;
+  }
+
+  .top {
+    display: flex;
+    align-items: center;
+    padding-bottom: 12px;
+    border-bottom: 1px solid $primary-color;
+
+    .title {
+      margin-right: 24px;
+    }
   }
 }
+
 
 .version-table {
   width: 100%;
