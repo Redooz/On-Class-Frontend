@@ -32,6 +32,7 @@ import { BasicMultiselectComponent } from './components/molecules/basic-multisel
 import { SelectedValueTextComponent } from './components/atoms/selected-value-text/selected-value-text.component';
 import { BootcampFormComponent } from './components/molecules/bootcamp-form/bootcamp-form.component';
 import { BootcampVersionComponent } from './components/pages/bootcamp-version/bootcamp-version.component';
+import { BootcampVersionFormComponent } from './components/molecules/bootcamp-version-form/bootcamp-version-form.component';
 
 @NgModule({
   declarations: [
@@ -61,6 +62,7 @@ import { BootcampVersionComponent } from './components/pages/bootcamp-version/bo
     SelectedValueTextComponent,
     BootcampFormComponent,
     BootcampVersionComponent,
+    BootcampVersionFormComponent,
   ],
   imports: [
     BrowserModule,
