@@ -1,4 +1,4 @@
-<main>
+<main class="container">
   <section class="top">
     <h2 class="title">{{bootcampName}}</h2>
     <app-primary-button
@@ -7,24 +7,28 @@
     ></app-primary-button>
   </section>
 
-  <table class="version-table" >
-    <thead>
-      <tr>
-        <th>Fecha Inicio</th>
-        <th>Fecha Finalización</th>
-        <th>Cupo máximo</th>
-        <th>Tareas</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let version of versions">
-        <td>{{ version.startDate }}</td>
-        <td>{{ version.endDate }}</td>
-        <td>{{ version.maxNumOfStudents }}</td>
-        <td>Ver tareas</td>
-      </tr>
-    </tbody>
-  </table>
+  <p *ngIf="versions.length === 0; else elseBlock" class="text">Crea una versión para este bootcamp</p>
+
+  <ng-template #elseBlock>
+    <table class="version-table" >
+      <thead>
+        <tr>
+          <th>Fecha Inicio</th>
+          <th>Fecha Finalización</th>
+          <th>Cupo máximo</th>
+          <th>Tareas</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let version of versions">
+          <td>{{ version.startDate }}</td>
+          <td>{{ version.endDate }}</td>
+          <td>{{ version.maxNumOfStudents }}</td>
+          <td>Ver tareas</td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-template>
 
   <app-primary-button
     class="buttom-button"

@@ -16,6 +16,6 @@ export class BootcampVersionService {
   }
 
   getBootcampVersions(bootcampId: number) {
-    return this.httpClient.get(`${this.apiUrl}bootcamp/${bootcampId}`);
+    return this.httpClient.get(`${this.apiUrl}`, { params: { bootcampId: bootcampId.toString() } });
   }
 }
