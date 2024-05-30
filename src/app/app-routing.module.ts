@@ -5,6 +5,7 @@ import { LibraryComponent } from './components/templates/library/library.compone
 import { TechnologiesComponent } from './components/pages/technologies/technologies.component';
 import { CapacitiesComponent } from './components/pages/capacities/capacities.component';
 import { BootcampsComponent } from './components/pages/bootcamps/bootcamps.component';
+import { BootcampVersionComponent } from './components/pages/bootcamp-version/bootcamp-version.component';
 
 const routes: Routes = [
   {
@@ -25,7 +26,7 @@ const routes: Routes = [
       },
       {
         path: 'bootcamps',
-        component: BootcampsComponent
+        component: BootcampsComponent,
       },
       {
         path: '',
@@ -38,6 +39,10 @@ const routes: Routes = [
     path: '',
     redirectTo: 'home',
     pathMatch: 'full'
+  },
+  {
+    path: 'library/bootcamps/:id',
+    component: BootcampVersionComponent
   }
 ];
 
