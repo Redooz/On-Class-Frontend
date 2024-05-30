@@ -31,8 +31,6 @@ import { CapacityFormComponent } from './components/molecules/capacity-form/capa
 import { BasicMultiselectComponent } from './components/molecules/basic-multiselect/basic-multiselect.component';
 import { SelectedValueTextComponent } from './components/atoms/selected-value-text/selected-value-text.component';
 import { BootcampFormComponent } from './components/molecules/bootcamp-form/bootcamp-form.component';
-import { BootcampVersionComponent } from './components/pages/bootcamp-version/bootcamp-version.component';
-import { BootcampVersionFormComponent } from './components/molecules/bootcamp-version-form/bootcamp-version-form.component';
 
 @NgModule({
   declarations: [
@@ -61,8 +59,6 @@ import { BootcampVersionFormComponent } from './components/molecules/bootcamp-ve
     BasicMultiselectComponent,
     SelectedValueTextComponent,
     BootcampFormComponent,
-    BootcampVersionComponent,
-    BootcampVersionFormComponent,
   ],
   imports: [
     BrowserModule,
