@@ -6,6 +6,7 @@ import { BootcampOrderByOption } from '../../../bootcamp/utils/bootcamp-order-by
 import { GetBootcampResponse } from '../../../bootcamp/dtos/response/get-bootcamp.request';
 import { CapacityService } from '../../../capacity/services/capacity.service';
 import { BootcampService } from '../../../bootcamp/services/bootcamp.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bootcamps',
@@ -31,7 +32,7 @@ export class BootcampsComponent {
   ];
   public bootcamps: GetBootcampResponse[] = [];
 
-  constructor(private capacityService: CapacityService, private bootcampService: BootcampService) {
+  constructor(private capacityService: CapacityService, private bootcampService: BootcampService, private router: Router) {
     this.getAvailableCapacities();
     this.getBootcamps(this.selectedSize, 0, this.selectedOrderBy);
   }
@@ -104,6 +105,10 @@ export class BootcampsComponent {
       }
 
     })
+  }
+
+  onBootcampClick(bootcampId: number) {
+    this.router.navigate([`library/bootcamps/${bootcampId}`]);
   }
 
   openModal() {

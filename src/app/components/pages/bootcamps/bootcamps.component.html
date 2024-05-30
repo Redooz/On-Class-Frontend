@@ -25,7 +25,8 @@
         *ngFor="let bootcamp of bootcamps"
         [optionTitle]="bootcamp.name"
         [optionDescription]="bootcamp.description"
-        [optionIcon]="'ellipsis-vertical'"
+        [optionIcon]="'greater-than'"
+        (click)="onBootcampClick(bootcamp.id)"
       ></app-on-class-item>
     </div>
 

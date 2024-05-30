@@ -1,0 +1,62 @@
+<main>
+  <section class="top">
+    <h2 class="title">{{bootcampName}}</h2>
+    <app-primary-button
+      [optionText]="'Crear Versión'"
+      (click)="openModal()"
+    ></app-primary-button>
+  </section>
+
+  <table class="version-table" >
+    <thead>
+      <tr>
+        <th>Fecha Inicio</th>
+        <th>Fecha Finalización</th>
+        <th>Cupo máximo</th>
+        <th>Tareas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let version of versions">
+        <td>{{ version.startDate }}</td>
+        <td>{{ version.endDate }}</td>
+        <td>{{ version.maxNumOfStudents }}</td>
+        <td>Ver tareas</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <app-primary-button
+    class="buttom-button"
+    [optionText]="'Crear'"
+    (click)="openModal()"
+  ></app-primary-button>
+
+</main>
+
+<app-modal
+  *ngIf="modalIsVisible"
+  [optionTitle]="'Crear Versión'"
+  (closeEvent)="closeModal()"
+>
+  <app-bootcamp-version-form
+    [optionBootcampId]="bootcampId"
+    (versionCreated)="openSuccess()"
+    (versionNotCreated)="openError($event)"
+  ></app-bootcamp-version-form>
+</app-modal>
+
+<app-modal *ngIf="successIsVisible" (closeEvent)="closeSuccess()">
+  <app-modal-message
+    (closeEvent)="closeSuccess()"
+    [optionLabel]="'!Versión Creada!'"
+  ></app-modal-message>
+</app-modal>
+
+<app-modal *ngIf="errorIsVisible" (closeEvent)="closeError()">
+  <app-modal-message
+    (closeEvent)="closeError()"
+    [isSuccessful]="false"
+    [optionLabel]="errorMessage"
+  ></app-modal-message>
+</app-modal>
