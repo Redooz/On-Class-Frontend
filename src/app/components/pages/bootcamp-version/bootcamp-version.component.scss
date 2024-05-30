@@ -1,0 +1,35 @@
+@import '../../../../styles.scss';
+
+.top {
+  display: flex;
+  align-items: center;
+  padding-bottom: 12px;
+  border-bottom: 1px solid $primary-color;
+
+  .title {
+    margin-right: 24px;
+  }
+}
+
+.version-table {
+  width: 100%;
+  margin-top: 24px;
+  text-align: center;
+  tbody {
+    background-color: rgba($primary-color, 0.1);
+    tr {
+      td {
+        padding: 12px 0;
+        border-bottom: 1px solid $very-light-gray;
+      }
+    }
+  }
+}
+
+.buttom-button {
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  margin-bottom: 34px;
+  margin-right: 86px;
+}

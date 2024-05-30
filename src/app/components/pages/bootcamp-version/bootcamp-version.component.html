@@ -1,0 +1,30 @@
+<section class="top">
+  <h2 class="title">{{bootcampName}}</h2>
+  <app-primary-button
+    [optionText]="'Crear Versión'"
+  ></app-primary-button>
+</section>
+
+<table class="version-table" >
+  <thead>
+    <tr>
+      <th>Fecha Inicio</th>
+      <th>Fecha Finalización</th>
+      <th>Cupo máximo</th>
+      <th>Tareas</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let version of versions">
+      <td>{{ version.startDate }}</td>
+      <td>{{ version.endDate }}</td>
+      <td>{{ version.maxNumOfStudents }}</td>
+      <td>Ver tareas</td>
+    </tr>
+  </tbody>
+</table>
+
+<app-primary-button
+  class="buttom-button"
+  [optionText]="'Crear'"
+></app-primary-button>
