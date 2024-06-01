@@ -5,7 +5,7 @@ import { environment } from 'src/environments/environment';
 
 @Injectable()
 export class TechnologyService {
-  private apiUrl = `${environment.apiBaseUrl}/technologies/`;
+  private apiUrl = `${environment.apiBootcampBaseUrl}/technologies/`;
 
   constructor(private httpCLient: HttpClient) {}
 

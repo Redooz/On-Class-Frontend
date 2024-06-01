@@ -8,7 +8,7 @@ import { BootcampOrderByOption } from '../utils/bootcamp-order-by-option';
   providedIn: 'root'
 })
 export class BootcampService {
-  public apiUrl = `${environment.apiBaseUrl}/bootcamps/`;
+  public apiUrl = `${environment.apiBootcampBaseUrl}/bootcamps/`;
 
   constructor(private httpClient: HttpClient) { }
 

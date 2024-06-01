@@ -1,0 +1,14 @@
+@import '../../../../styles.scss';
+
+.secondary_button {
+  cursor: pointer;
+  font-family: $font-family;
+  background-color: transparent;
+  color: $primary-color;
+  font-size: $medium-font-size;
+  font-weight: bold;
+  height: 40px;
+  border-radius: 30px;
+  padding: 0px 24px;
+  border: 1px solid $primary-color;
+}
