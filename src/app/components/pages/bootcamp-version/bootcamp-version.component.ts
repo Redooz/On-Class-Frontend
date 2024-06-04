@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { GetBootcampVersionResponse } from '../../../bootcamp-version/dtos/response/get-bootcamp-version.response';
 import { BootcampVersionService } from '../../../bootcamp-version/services/bootcamp-version.service';
 
@@ -17,7 +17,7 @@ export class BootcampVersionComponent {
   public bootcampName: string = 'Bootcamp';
   public versions: GetBootcampVersionResponse[] = [];
 
-  constructor(private route: ActivatedRoute, private bootcampVersionService: BootcampVersionService) {
+  constructor(private route: ActivatedRoute, private bootcampVersionService: BootcampVersionService, public router: Router) {
     this.bootcampId = Number.parseInt(this.route.snapshot.paramMap.get('id')!) ?? 0;
     this.getVersions();
   }
@@ -40,6 +40,7 @@ export class BootcampVersionComponent {
 
         if (error.status === 403) {
           this.openError('Error de autenticación');
+          this.router.navigate(['/login']);
           return;
         }
 

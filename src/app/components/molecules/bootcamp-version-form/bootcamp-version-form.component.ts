@@ -2,6 +2,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { CreateBootcampVersionRequest } from '../../../bootcamp-version/dtos/request/create-bootcamp-version.request';
 import { BootcampVersionService } from '../../../bootcamp-version/services/bootcamp-version.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bootcamp-version-form',
@@ -14,7 +15,7 @@ export class BootcampVersionFormComponent implements OnInit {
   @Output() versionCreated = new EventEmitter<void>();
   @Output() versionNotCreated = new EventEmitter<string>();
 
-  constructor(public fb: FormBuilder, public service: BootcampVersionService) { }
+  constructor(public fb: FormBuilder, public service: BootcampVersionService, public router: Router) { }
 
   ngOnInit(): void {
     this.form =  this.fb.group({
@@ -58,6 +59,7 @@ export class BootcampVersionFormComponent implements OnInit {
 
         if (error.status === 403) {
           this.versionNotCreated.emit('Error de autenticación');
+          this.router.navigate(['/login']);
           return;
         }
 

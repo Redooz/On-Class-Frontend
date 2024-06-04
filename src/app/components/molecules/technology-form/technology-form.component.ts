@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { TechnologyService } from '../../../technology/services/technology.service';
 import { CreateTechnologyRequest } from '../../../technology/dtos/request/create-technology.request';
 import { HttpErrorResponse } from '@angular/common/http';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-technology-form',
@@ -16,7 +17,7 @@ export class TechnologyFormComponent implements OnInit {
   @Output() technologyCreated = new EventEmitter<void>();
   @Output() technologyNotCreated = new EventEmitter<string>();
 
-  constructor(private fb: FormBuilder, public service: TechnologyService) {}
+  constructor(private fb: FormBuilder, public service: TechnologyService, public router: Router) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -46,6 +47,7 @@ export class TechnologyFormComponent implements OnInit {
 
         if (error.status === 403) {
           this.technologyNotCreated.emit('Error de autenticación');
+          this.router.navigate(['/login']);
           return;
         }
 

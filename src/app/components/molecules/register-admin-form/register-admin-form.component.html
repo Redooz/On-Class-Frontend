@@ -1,0 +1,70 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+  <app-basic-input
+    [optionLabel]="'Nombre'"
+    [optionPlaceholder]="'Nombre'"
+    [optionIsRequired]="true"
+    [optionMinLength]="minLengthName"
+    formControlName="name"
+    (valueChange)="onValueChange('name', $event)"
+  ></app-basic-input>
+
+  <app-basic-input
+    [optionLabel]="'Apellido'"
+    [optionPlaceholder]="'Apellido'"
+    [optionIsRequired]="true"
+    [optionMinLength]="minLengthLastName"
+    formControlName="lastName"
+    (valueChange)="onValueChange('lastName', $event)"
+  ></app-basic-input>
+
+  <app-basic-input
+    [optionInputType]="'number'"
+    [optionLabel]="'Número de documento'"
+    [optionPlaceholder]="'Número de documento'"
+    [optionIsRequired]="true"
+    [optionMinLength]="minLengthDocumentNumber"
+    formControlName="documentNumber"
+    (valueChange)="onValueChange('documentNumber', $event)"
+  ></app-basic-input>
+
+  <app-basic-input
+    [optionInputType]="'tel'"
+    [optionLabel]="'Teléfono'"
+    [optionPlaceholder]="'Teléfono'"
+    [optionIsRequired]="true"
+    [optionMinLength]="minLengthTelephone"
+    formControlName="telephone"
+    (valueChange)="onValueChange('telephone', $event)"
+  ></app-basic-input>
+
+  <app-basic-input
+    [optionInputType]="'email'"
+    [optionLabel]="'Correo electrónico'"
+    [optionPlaceholder]="'Correo electrónico'"
+    [optionIsRequired]="true"
+    formControlName="email"
+    (valueChange)="onValueChange('email', $event)"
+  ></app-basic-input>
+
+  <app-basic-input
+    [optionInputType]="'password'"
+    [optionLabel]="'Contraseña'"
+    [optionPlaceholder]="'Contraseña'"
+    [optionIsRequired]="true"
+    formControlName="password"
+    (valueChange)="onValueChange('password', $event)"
+  ></app-basic-input>
+
+  <app-basic-input
+    [optionInputType]="'password'"
+    [optionLabel]="'Confirmar contraseña'"
+    [optionPlaceholder]="'Confirmar contraseña'"
+    [optionIsRequired]="true"
+    formControlName="passwordConfirmation"
+    (valueChange)="onValueChange('passwordConfirmation', $event)"
+  ></app-basic-input>
+
+  <app-primary-button [optionText]="'Registrar'"></app-primary-button>
+
+</form>
+

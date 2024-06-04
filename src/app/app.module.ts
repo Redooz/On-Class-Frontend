@@ -35,6 +35,7 @@ import { BootcampVersionComponent } from './components/pages/bootcamp-version/bo
 import { BootcampVersionFormComponent } from './components/molecules/bootcamp-version-form/bootcamp-version-form.component';
 import { SecondaryButtonComponent } from './components/atoms/secondary-button/secondary-button.component';
 import { LoginComponent } from './components/pages/login/login.component';
+import { RegisterAdminFormComponent } from './components/molecules/register-admin-form/register-admin-form.component';
 
 @NgModule({
   declarations: [
@@ -67,6 +68,7 @@ import { LoginComponent } from './components/pages/login/login.component';
     BootcampVersionFormComponent,
     SecondaryButtonComponent,
     LoginComponent,
+    RegisterAdminFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -82,7 +84,7 @@ import { LoginComponent } from './components/pages/login/login.component';
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true,
-    }
+    },
   ],
 })
 export class AppModule {}

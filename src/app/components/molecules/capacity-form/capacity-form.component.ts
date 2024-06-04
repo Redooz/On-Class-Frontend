@@ -5,6 +5,7 @@ import { CapacityService } from 'src/app/capacity/services/capacity.service';
 import { GetTechnologyResponse } from 'src/app/technology/dtos/response/get-technology.response';
 import { SelectItem } from '../../pages/utils/select-items';
 import { OnClassItem } from '../../../utils/on-class-item';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-capacity-form',
@@ -22,7 +23,7 @@ export class CapacityFormComponent implements OnInit {
   @Output() capacityNotCreated = new EventEmitter<string>();
 
 
-  constructor(public fb: FormBuilder, public service: CapacityService) { }
+  constructor(public fb: FormBuilder, public service: CapacityService, public router: Router) { }
 
   ngOnInit(): void {
     this.form =  this.fb.group({
@@ -56,6 +57,7 @@ export class CapacityFormComponent implements OnInit {
 
         if (error.status === 403) {
           this.capacityNotCreated.emit('Error de autenticación');
+          this.router.navigate(['/login']);
           return;
         }
 
