@@ -7,10 +7,13 @@ import { CapacitiesComponent } from './components/pages/capacities/capacities.co
 import { BootcampsComponent } from './components/pages/bootcamps/bootcamps.component';
 import { BootcampVersionComponent } from './components/pages/bootcamp-version/bootcamp-version.component';
 import { LoginComponent } from './components/pages/login/login.component';
-import { AppComponent } from './app.component';
 import { TemplateComponent } from './components/templates/template/template.component';
 
 const routes: Routes = [
+  {
+    path: 'login',
+    component: LoginComponent
+  },
   {
     path: '',
     component: TemplateComponent,
@@ -52,11 +55,7 @@ const routes: Routes = [
         component: BootcampVersionComponent
       },
     ]
-  },
-  {
-    path: 'login',
-    component: LoginComponent
-  },
+  }
 ];
 
 @NgModule({
