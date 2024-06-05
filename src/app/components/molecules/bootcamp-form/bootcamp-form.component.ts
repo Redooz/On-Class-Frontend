@@ -1,5 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CapacityItem } from 'src/app/bootcamp/dtos/capacity-item';
 import { BootcampService } from 'src/app/bootcamp/services/bootcamp.service';
 import { GetCapacityResponse } from 'src/app/capacity/dtos/response/get-capacity.response';
@@ -19,7 +20,7 @@ export class BootcampFormComponent implements OnInit {
   @Output() bootcampCreated = new EventEmitter<void>();
   @Output() bootcampNotCreated = new EventEmitter<string>();
 
-  constructor(public fb: FormBuilder, public service: BootcampService) {}
+  constructor(public fb: FormBuilder, public service: BootcampService, public router: Router) {}
 
   ngOnInit(): void {
     this.form = this.fb.group({
@@ -53,6 +54,7 @@ export class BootcampFormComponent implements OnInit {
 
         if (error.status === 403) {
           this.bootcampNotCreated.emit('Error de autenticación');
+          this.router.navigate(['/login']);
           return;
         }
 

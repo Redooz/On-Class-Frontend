@@ -29,12 +29,28 @@ export class BasicInputComponent implements OnInit, ControlValueAccessor {
   @Input() optionInputType: string = 'text';
   @Input() optionIsRequired: boolean = false;
   @Input() optionMaxLength: number = 0;
+  @Input() optionMinLength: number = 0;
   @Output() valueChange = new EventEmitter<string>();
 
   ngOnInit(): void {
     if (this.optionMaxLength > 0) {
       this.control.setValidators([
         Validators.required,
+        Validators.maxLength(this.optionMaxLength),
+      ]);
+    }
+
+    if (this.optionMinLength > 0) {
+      this.control.setValidators([
+        Validators.required,
+        Validators.minLength(this.optionMinLength),
+      ]);
+    }
+
+    if (this.optionMinLength > 0 && this.optionMaxLength > 0) {
+      this.control.setValidators([
+        Validators.required,
+        Validators.minLength(this.optionMinLength),
         Validators.maxLength(this.optionMaxLength),
       ]);
     }

@@ -1,0 +1,40 @@
+<main class="container">
+  <img src="../../../../assets/images/on-class-logo.png" alt="on class logo" class="image">
+  <app-primary-button
+    [optionText]="'Soy estudiante'"
+    class="primary-button"
+  ></app-primary-button>
+
+  <app-secondary-button
+    [optionText]="'Soy tutor'"
+    class="secondary-button"
+  ></app-secondary-button>
+
+  <span class="register-text">¿No tienes cuenta? <a (click)="openRegisterModal()">Regístrate</a></span>
+</main>
+
+<app-modal
+  *ngIf="registerModalIsVisible"
+  [optionTitle]="'Registro administrador'"
+  (closeEvent)="closeRegisterModal()"
+>
+  <app-register-admin-form
+    (adminRegistered)="openSuccess()"
+    (adminNotRegistered)="openError($event)"
+  ></app-register-admin-form>
+</app-modal>
+
+<app-modal *ngIf="successIsVisible" (closeEvent)="closeSuccess()">
+  <app-modal-message
+    (closeEvent)="closeSuccess()"
+    [optionLabel]="'¡Exito!'"
+  ></app-modal-message>
+</app-modal>
+
+<app-modal *ngIf="errorIsVisible" (closeEvent)="closeError()">
+  <app-modal-message
+    (closeEvent)="closeError()"
+    [isSuccessful]="false"
+    [optionLabel]="errorMessage"
+  ></app-modal-message>
+</app-modal>

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { GetTechnologyResponse } from 'src/app/technology/dtos/response/get-technology.response';
 import { TechnologyService } from '../../../technology/services/technology.service';
 import { selectPagination } from '../utils/technologies.constants';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-technologies',
@@ -20,7 +21,7 @@ export class TechnologiesComponent {
   public sizePaginationOptions = selectPagination
   public totalItems: number = 0;
 
-  constructor(public service: TechnologyService) {
+  constructor(public service: TechnologyService, public router: Router) {
     this.getTechnologies(this.selectedSize, 0);
   }
 
@@ -46,6 +47,7 @@ export class TechnologiesComponent {
       error: (error) => {
         if (error.status === 403) {
           this.openError('Error de autenticación, por favor inicie sesión');
+          this.router.navigate(['/login']);
           return;
         }
 

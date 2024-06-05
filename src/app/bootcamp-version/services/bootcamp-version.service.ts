@@ -7,7 +7,7 @@ import { CreateBootcampVersionRequest } from '../dtos/request/create-bootcamp-ve
   providedIn: 'root'
 })
 export class BootcampVersionService {
-  public apiUrl = `${environment.apiBaseUrl}/version/`;
+  public apiUrl = `${environment.apiBootcampBaseUrl}/version/`;
 
   constructor(private httpClient: HttpClient) { }
 

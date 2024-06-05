@@ -33,6 +33,9 @@ import { SelectedValueTextComponent } from './components/atoms/selected-value-te
 import { BootcampFormComponent } from './components/molecules/bootcamp-form/bootcamp-form.component';
 import { BootcampVersionComponent } from './components/pages/bootcamp-version/bootcamp-version.component';
 import { BootcampVersionFormComponent } from './components/molecules/bootcamp-version-form/bootcamp-version-form.component';
+import { SecondaryButtonComponent } from './components/atoms/secondary-button/secondary-button.component';
+import { LoginComponent } from './components/pages/login/login.component';
+import { RegisterAdminFormComponent } from './components/molecules/register-admin-form/register-admin-form.component';
 
 @NgModule({
   declarations: [
@@ -63,6 +66,9 @@ import { BootcampVersionFormComponent } from './components/molecules/bootcamp-ve
     BootcampFormComponent,
     BootcampVersionComponent,
     BootcampVersionFormComponent,
+    SecondaryButtonComponent,
+    LoginComponent,
+    RegisterAdminFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -78,7 +84,7 @@ import { BootcampVersionFormComponent } from './components/molecules/bootcamp-ve
       provide: HTTP_INTERCEPTORS,
       useClass: TokenInterceptor,
       multi: true,
-    }
+    },
   ],
 })
 export class AppModule {}

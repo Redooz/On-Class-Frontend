@@ -6,43 +6,55 @@ import { TechnologiesComponent } from './components/pages/technologies/technolog
 import { CapacitiesComponent } from './components/pages/capacities/capacities.component';
 import { BootcampsComponent } from './components/pages/bootcamps/bootcamps.component';
 import { BootcampVersionComponent } from './components/pages/bootcamp-version/bootcamp-version.component';
+import { LoginComponent } from './components/pages/login/login.component';
+import { TemplateComponent } from './components/templates/template/template.component';
 
 const routes: Routes = [
   {
-    path: 'home',
-    component: HomeComponent
-  },
-  {
-    path: 'library',
-    component: LibraryComponent,
-    children: [
-      {
-        path: 'technologies',
-        component: TechnologiesComponent
-      },
-      {
-        path: 'capacities',
-        component: CapacitiesComponent
-      },
-      {
-        path: 'bootcamps',
-        component: BootcampsComponent,
-      },
-      {
-        path: '',
-        redirectTo: 'technologies',
-        pathMatch: 'full'
-      }
-    ]
+    path: 'login',
+    component: LoginComponent
   },
   {
     path: '',
-    redirectTo: 'home',
-    pathMatch: 'full'
-  },
-  {
-    path: 'library/bootcamps/:id',
-    component: BootcampVersionComponent
+    component: TemplateComponent,
+    children: [
+      {
+        path: 'home',
+        component: HomeComponent
+      },
+      {
+        path: 'library',
+        component: LibraryComponent,
+        children: [
+          {
+            path: 'technologies',
+            component: TechnologiesComponent
+          },
+          {
+            path: 'capacities',
+            component: CapacitiesComponent
+          },
+          {
+            path: 'bootcamps',
+            component: BootcampsComponent,
+          },
+          {
+            path: '',
+            redirectTo: 'technologies',
+            pathMatch: 'full'
+          }
+        ]
+      },
+      {
+        path: '',
+        redirectTo: 'home',
+        pathMatch: 'full'
+      },
+      {
+        path: 'library/bootcamps/:id',
+        component: BootcampVersionComponent
+      },
+    ]
   }
 ];
 

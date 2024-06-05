@@ -8,7 +8,7 @@ import { CapacityOrderByOption } from '../utils/capacity-order-by-option';
   providedIn: 'root'
 })
 export class CapacityService {
-  public apiUrl = `${environment.apiBaseUrl}/capacities/`;
+  public apiUrl = `${environment.apiBootcampBaseUrl}/capacities/`;
 
   constructor(private httpCLient: HttpClient) { }
 

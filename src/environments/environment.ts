@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  apiBaseUrl: 'http://localhost:8080',
+  apiBootcampBaseUrl: 'http://localhost:8080',
+  apiUserBaseUrl: 'http://localhost:8081',
 };
 
 /*

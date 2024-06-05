@@ -6,6 +6,7 @@ import { GetCapacityResponse } from '../../../capacity/dtos/response/get-capacit
 import { CapacityOrderByOption } from 'src/app/capacity/utils/capacity-order-by-option';
 import { TechnologyService } from '../../../technology/services/technology.service';
 import { CapacityService } from '../../../capacity/services/capacity.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-capacities',
@@ -16,7 +17,7 @@ export class CapacitiesComponent {
   public modalIsVisible: boolean = false;
   public successIsVisible: boolean = false;
   public errorIsVisible: boolean = false;
-  public errorMessage: string = '!Error al crear la capacidad!';
+  public errorMessage: string = '¡Error al crear la capacidad!';
   public technologiesForSelect: SelectItem[] = [];
   public availableTechnologies: GetTechnologyResponse[] = [];
   public capacities: GetCapacityResponse[] = [];
@@ -31,7 +32,7 @@ export class CapacitiesComponent {
   ];
   public totalItems: number = 0;
 
-  constructor(private technologyService: TechnologyService, private capacityService: CapacityService) {
+  constructor(private technologyService: TechnologyService, private capacityService: CapacityService, public router: Router) {
     this.getAvailableTechnologies();
     this.getCapacities(this.selectedSize, 0, this.selectedOrderBy);
   }
@@ -67,6 +68,7 @@ export class CapacitiesComponent {
       error: (error) => {
         if (error.status === 403) {
           this.openError('Error de autenticación, por favor inicie sesión');
+          this.router.navigate(['/login']);
           return;
         }
 
