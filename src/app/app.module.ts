@@ -36,6 +36,7 @@ import { BootcampVersionFormComponent } from './components/molecules/bootcamp-ve
 import { SecondaryButtonComponent } from './components/atoms/secondary-button/secondary-button.component';
 import { LoginComponent } from './components/pages/login/login.component';
 import { RegisterAdminFormComponent } from './components/molecules/register-admin-form/register-admin-form.component';
+import { LoginFormComponent } from './components/molecules/login-form/login-form.component';
 
 @NgModule({
   declarations: [
@@ -69,6 +70,7 @@ import { RegisterAdminFormComponent } from './components/molecules/register-admi
     SecondaryButtonComponent,
     LoginComponent,
     RegisterAdminFormComponent,
+    LoginFormComponent,
   ],
   imports: [
     BrowserModule,

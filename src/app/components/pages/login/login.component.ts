@@ -11,6 +11,7 @@ export class LoginComponent {
   public errorIsVisible: boolean = false;
   public errorMessage: string = '¡Error al registrar el administrador!';
 
+  public loginModalIsVisible: boolean = false;
 
   constructor() { }
 
@@ -38,6 +39,14 @@ export class LoginComponent {
 
   closeError() {
     this.errorIsVisible = false;
+  }
+
+  openLoginModal() {
+    this.loginModalIsVisible = true;
+  }
+
+  closeLoginModal() {
+    this.loginModalIsVisible = false;
   }
 
 }
