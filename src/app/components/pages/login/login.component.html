@@ -3,11 +3,13 @@
   <app-primary-button
     [optionText]="'Soy estudiante'"
     class="primary-button"
+    (click)="openLoginModal()"
   ></app-primary-button>
 
   <app-secondary-button
     [optionText]="'Soy tutor'"
     class="secondary-button"
+    (click)="openLoginModal()"
   ></app-secondary-button>
 
   <span class="register-text">¿No tienes cuenta? <a (click)="openRegisterModal()">Regístrate</a></span>
@@ -22,6 +24,14 @@
     (adminRegistered)="openSuccess()"
     (adminNotRegistered)="openError($event)"
   ></app-register-admin-form>
+</app-modal>
+
+<app-modal
+  *ngIf="loginModalIsVisible"
+  [optionTitle]="'Iniciar sesión'"
+  (closeEvent)="closeLoginModal()"
+>
+  <app-login-form></app-login-form>
 </app-modal>
 
 <app-modal *ngIf="successIsVisible" (closeEvent)="closeSuccess()">

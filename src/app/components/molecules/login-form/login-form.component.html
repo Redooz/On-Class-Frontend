@@ -1,0 +1,21 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="form-container">
+  <app-basic-input
+    [optionInputType]="'email'"
+    [optionLabel]="'Correo electrónico'"
+    [optionPlaceholder]="'Correo electrónico'"
+    [optionIsRequired]="true"
+    formControlName="email"
+    (valueChange)="onValueChange('email', $event)"
+  ></app-basic-input>
+
+  <app-basic-input
+    [optionInputType]="'password'"
+    [optionLabel]="'Contraseña'"
+    [optionPlaceholder]="'Contraseña'"
+    [optionIsRequired]="true"
+    formControlName="password"
+    (valueChange)="onValueChange('password', $event)"
+  ></app-basic-input>
+
+  <app-primary-button [optionText]="'Iniciar sesión'"></app-primary-button>
+</form>
